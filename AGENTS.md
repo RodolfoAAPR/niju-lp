@@ -59,6 +59,7 @@ Foto `portfolio-sebominas.jpg` em bloco 4:5 no topo (sem vídeo), carrosséis sn
 - 2026-11-23: Fase 3 caminho A (vídeo). Fase 4: conceito Descida da madrugada, Tier 2, marca V1 máscara, Trio A Estrada. Paleta: grafite, azul sinal, gelo.
 - 2026-11-23: Fase 5 aprovada. CLI Higgsfield instalado. Fotos em `app/public/assets/`, fontes em `app/public/fonts/`. Falta login no Higgsfield.
 - 2026-11-23: Fase 8 construída com topo provisório em foto (rodolfo escolheu construir com provisório). Autoteste: 360 a 1920 sem estouro, form erro/sucesso, movimento reduzido, gate de copy zerado, SITE_URL testado. Prints em `review/pw-*`.
+- 2026-11-23: link de apresentação liberado para publicar sem pedir a cada mudança. Projeto Pages: `lp-niju`. Falta token Cloudflare do rodolfo.
 
 ## Pendências
 
