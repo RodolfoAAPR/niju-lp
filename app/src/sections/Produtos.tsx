@@ -10,25 +10,25 @@ const produtos = [
     id: "paleteiro",
     nome: "Semirreboque frigorífico paleteiro",
     linha: "Assoalho em dois modelos e a Geladeira, criação da casa.",
-    foto: "/assets/produto-paleteiro.png",
+    foto: "assets/produto-paleteiro.png",
   },
   {
     id: "gancheiro",
     nome: "Semirreboque frigorífico gancheiro",
     linha: "O frigorífico gancheiro com o quadro inox exclusivo.",
-    foto: "/assets/produto-gancheiro.png",
+    foto: "assets/produto-gancheiro.png",
   },
   {
     id: "metalico",
     nome: "Baú metálico",
     linha: "Assoalho trapezoidal e construção certificada ISO 9001.",
-    foto: "/assets/produto-bau-metalico.png",
+    foto: "assets/produto-bau-metalico.png",
   },
   {
     id: "plastico",
     nome: "Baú plástico",
     linha: "Com reservatório de água e caixa de ferramenta acoplados.",
-    foto: "/assets/produto-bau-plastico.png",
+    foto: "assets/produto-bau-plastico.png",
   },
 ];
 

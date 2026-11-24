@@ -4,11 +4,11 @@ import { DicaArraste, Regua, useCarrossel } from "@/components/CarrosselRegua";
 /* CAPÍTULO 06 · Portfólio: fotos reais de clientes na estrada, com régua. */
 
 const fotos = [
-  { img: "/assets/portfolio-sebominas.jpg", nome: "Sebominas" },
-  { img: "/assets/portfolio-nobre.jpg", nome: "Nobre" },
-  { img: "/assets/portfolio-gral.jpg", nome: "Gral" },
-  { img: "/assets/portfolio-friboi.jpg", nome: "Friboi" },
-  { img: "/assets/portfolio-wide.jpg", nome: "Estrada" },
+  { img: "assets/portfolio-sebominas.jpg", nome: "Sebominas" },
+  { img: "assets/portfolio-nobre.jpg", nome: "Nobre" },
+  { img: "assets/portfolio-gral.jpg", nome: "Gral" },
+  { img: "assets/portfolio-friboi.jpg", nome: "Friboi" },
+  { img: "assets/portfolio-wide.jpg", nome: "Estrada" },
 ];
 
 export default function Portfolio() {

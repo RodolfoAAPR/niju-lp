@@ -4,9 +4,9 @@ import { Capitulo, Corpo, Rolo, Titulo } from "@/components/Editorial";
    até o cliente mandar os logos oficiais (os originais do site retornam 403). */
 
 const logos = [
-  { img: "/assets/logo-aurora.png", nome: "Aurora" },
-  { img: "/assets/logo-jbs.png", nome: "JBS" },
-  { img: "/assets/logo-dia.png", nome: "DIA" },
+  { img: "assets/logo-aurora.png", nome: "Aurora" },
+  { img: "assets/logo-jbs.png", nome: "JBS" },
+  { img: "assets/logo-dia.png", nome: "DIA" },
 ];
 const placas = ["BRF", "Seara"];
 

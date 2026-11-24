@@ -4,6 +4,8 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig(({ isSsrBuild }) => ({
+  // GitHub Pages serve em subcaminho (/niju-lp/): PAGES_BASE=/niju-lp/ nesse build. Padrão: raiz.
+  base: process.env.PAGES_BASE || "/",
   plugins: [react(), tailwindcss()],
   resolve: { alias: { "@": path.resolve(__dirname, "./src") } },
   // a etapa de pré-renderização não precisa copiar fotos e vídeos

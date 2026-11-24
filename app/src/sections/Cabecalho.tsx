@@ -21,7 +21,7 @@ export default function Cabecalho() {
     <header data-cena={emCena ? "1" : undefined} className="lp-cabecalho">
       <div className="lp-pad flex items-center justify-between gap-6 py-4">
         <a href="#topo" aria-label="Niju, voltar ao topo" className="block w-[104px]">
-          <img src="/assets/logo-niju.png" alt="Niju" className="h-auto w-full [mix-blend-mode:screen]" decoding="async" />
+          <img src="assets/logo-niju.png" alt="Niju" className="h-auto w-full [mix-blend-mode:screen]" decoding="async" />
         </a>
         <nav aria-label="Seções" className="hidden items-center gap-7 font-mono text-[12px] uppercase tracking-[0.18em] text-[var(--n-text-2)] min-[900px]:flex">
           {links.map((l) => (

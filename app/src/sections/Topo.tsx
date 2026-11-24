@@ -24,7 +24,7 @@ function MarcaHero({ className }: { className?: string }) {
   return (
     <div className={cn("lp-marca-hero flex flex-col items-center gap-7", className)}>
       <div className="lp-marca-mascara w-[min(62vw,520px)]">
-        <img src="/assets/logo-niju.png" alt="Niju Implementos Rodoviários" className="h-auto w-full" decoding="async" />
+        <img src="assets/logo-niju.png" alt="Niju Implementos Rodoviários" className="h-auto w-full" decoding="async" />
       </div>
       <p className="lp-eyebrow lp-marca-linha lp-over-video text-center">Implementos rodoviários · desde 1994</p>
     </div>
@@ -36,13 +36,13 @@ export default function Topo() {
     <ScrollVideo
       id="topo"
       prioridade
-      src="/assets/topo.mp4"
-      srcReverso="/assets/topo-rev.mp4"
-      poster="/assets/aerea-fabrica.jpg"
-      still="/assets/aerea-fabrica.jpg"
+      src="assets/topo.mp4"
+      srcReverso="assets/topo-rev.mp4"
+      poster="assets/aerea-fabrica.jpg"
+      still="assets/aerea-fabrica.jpg"
       stillAlt="Vista aérea da fábrica da Niju em Chapecó"
       velocidade={1}
-      stillCelular="/assets/portfolio-sebominas.jpg"
+      stillCelular="assets/portfolio-sebominas.jpg"
       blocoCelular="50% 40%"
       aspectoBloco="4 / 5"
       staticContent={

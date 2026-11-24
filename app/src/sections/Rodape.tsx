@@ -7,7 +7,7 @@ export default function Rodape() {
     <footer className="lp-pad border-t border-[var(--n-line)] py-12">
       <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
         <a href="#topo" aria-label="Niju, voltar ao topo" className="block w-[130px]">
-          <img src="/assets/logo-niju.png" alt="Niju" loading="lazy" decoding="async" className="h-auto w-full [mix-blend-mode:screen]" />
+          <img src="assets/logo-niju.png" alt="Niju" loading="lazy" decoding="async" className="h-auto w-full [mix-blend-mode:screen]" />
         </a>
         <nav aria-label="Rodapé" className="flex flex-wrap gap-x-8 gap-y-3 font-mono text-[12px] uppercase tracking-[0.18em] text-[var(--n-text-2)]">
           <a href="#produtos" className="hover:text-[var(--n-text-1)]">Produtos</a>

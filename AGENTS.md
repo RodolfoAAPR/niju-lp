@@ -63,6 +63,7 @@ Foto `portfolio-sebominas.jpg` em bloco 4:5 no topo (sem vídeo), carrosséis sn
 - 2026-11-23: link de apresentação liberado para publicar sem pedir a cada mudança. Projeto Pages: `lp-niju`. Falta token Cloudflare do rodolfo.
 - 2026-11-23: remoto ligado no `niju-lp` existente (rodolfo escolheu reaproveitar). Push com a conta da máquina via Credential Manager.
 - 2026-11-23: repo tornado público a pedido do rodolfo. `gh` logado como RodolfoAAPR.
+- 2026-11-23: deploy no GitHub Pages via Actions (`.github/workflows/pages.yml`, source precisa estar em GitHub Actions). Caminhos relativos em tudo (`PAGES_BASE=/niju-lp/` no build). URL: https://rodolfoaapr.github.io/niju-lp/
 
 ## Pendências
 
