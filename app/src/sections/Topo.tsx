@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 
 function Faixa({ band, rotulo, titulo, apoio }: { band: string; rotulo: string; titulo: React.ReactNode; apoio?: string }) {
   return (
-    <div data-band={band} className="lp-pad absolute inset-y-0 left-0 right-0 flex flex-col justify-center opacity-0 [&>*]:max-w-[900px]" style={{ visibility: "hidden" }}>
+    <div data-band={band} className="lp-pad absolute inset-y-0 left-0 right-0 flex flex-col items-center justify-center text-center opacity-0 [&>*]:max-w-[900px]" style={{ visibility: "hidden" }}>
       <p className="lp-eyebrow lp-over-video">{rotulo}</p>
       <h2 className="lp-display lp-over-video mt-8 text-[clamp(2.6rem,7vw,5.5rem)] text-white">
         <Palavras>{titulo}</Palavras>
@@ -47,8 +47,7 @@ export default function Topo() {
       aspectoBloco="4 / 5"
       portalEstatico={false}
       staticContent={
-        <div className="lp-pad relative flex min-h-[100svh] flex-col justify-center gap-6 py-24 max-[899px]:min-h-0 max-[899px]:justify-start max-[899px]:pb-16 max-[899px]:pt-10">
-          <MarcaHero className="is-in !items-start [&_.lp-marca-mascara]:w-[min(50vw,220px)] [&_.lp-marca-linha]:hidden" />
+        <div className="lp-pad relative flex min-h-[100svh] flex-col items-center justify-center gap-6 py-24 text-center max-[899px]:min-h-0 max-[899px]:justify-start max-[899px]:pb-16 max-[899px]:pt-10">
           <h1 data-words className="lp-display lp-over-video max-w-[12ch] text-[clamp(2.8rem,7.5vw,6rem)] text-white">
             <Palavras>
               Com Niju <em>dura mais.</em>
@@ -63,7 +62,7 @@ export default function Topo() {
           <p data-reveal className="font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--n-text-2)]">
             Orçamento em 5 perguntas · Sem compromisso
           </p>
-          <dl data-reveal className="flex flex-wrap gap-3">
+          <dl data-reveal className="flex w-full flex-wrap justify-center gap-3">
             {[
               ["30+", "anos de estrada"],
               ["4", "produtos na linha"],
@@ -101,7 +100,7 @@ export default function Topo() {
         apoio="Aurora, BRF, JBS, Seara e DIA."
       />
       <Faixa band="0.60 0.82" rotulo="Capítulo 03 · A linha" titulo="Do paleteiro ao baú, um Niju para cada carga." />
-      <div data-band="0.84 1" className="lp-pad absolute inset-y-0 left-0 right-0 flex flex-col justify-center opacity-0" style={{ visibility: "hidden" }}>
+      <div data-band="0.84 1" className="lp-pad absolute inset-y-0 left-0 right-0 flex flex-col items-center justify-center text-center opacity-0" style={{ visibility: "hidden" }}>
         <p className="lp-eyebrow lp-over-video">Capítulo 04 · O passo</p>
         <h2 className="lp-display lp-over-video mt-8 text-[clamp(2.6rem,7vw,5.5rem)] text-white">
           <Palavras>Peça seu orçamento.</Palavras>
