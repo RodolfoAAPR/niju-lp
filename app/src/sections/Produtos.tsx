@@ -87,7 +87,7 @@ export default function Produtos() {
             </button>
           ))}
         </div>
-        <div role="tabpanel" className="mt-8 grid grid-cols-[1.1fr_1fr] gap-8">
+        <div key={aba} role="tabpanel" className="lp-aba mt-8 grid grid-cols-[1.1fr_1fr] gap-8">
           <button
             type="button"
             onClick={() => setFicha(produtos[aba].id)}

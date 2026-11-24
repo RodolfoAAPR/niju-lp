@@ -874,6 +874,26 @@ select.lp-field option {
   }
 }
 
+/* ---------- troca de aba do produto ---------- */
+.lp-aba {
+  animation: lp-aba-in 0.5s var(--lp-ease-out);
+}
+@keyframes lp-aba-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lp-aba {
+    animation: none;
+  }
+}
+
 /* ---------- modal da ficha ---------- */
 .lp-modal {
   animation: lp-modal-in 0.35s var(--lp-ease-out);
