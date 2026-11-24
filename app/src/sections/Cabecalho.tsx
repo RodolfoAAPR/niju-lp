@@ -37,7 +37,7 @@ export default function Cabecalho() {
             aria-label={l.texto}
             className={cn(
               "flex min-h-[44px] items-center rounded-full px-3 font-mono text-[12px] uppercase tracking-[0.12em] transition-colors",
-              ativa === l.href ? "bg-[var(--n-accent)] text-white" : "text-[var(--n-text-2)] hover:text-[var(--n-text-1)]",
+              ativa === l.href ? "bg-[rgba(43,63,242,0.28)] text-white" : "text-[var(--n-text-2)] hover:text-[var(--n-text-1)]",
             )}
           >
             <l.Icone size={17} aria-hidden className="min-[900px]:hidden" />

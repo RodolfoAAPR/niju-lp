@@ -840,6 +840,40 @@ select.lp-field option {
   mix-blend-mode: screen;
 }
 
+/* ---------- painel com luz circulando a borda ---------- */
+@property --lp-ang {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.lp-painel {
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(rgba(24, 30, 38, 0.55), rgba(24, 30, 38, 0.55)) padding-box,
+    conic-gradient(
+        from var(--lp-ang),
+        rgba(43, 63, 242, 0) 0%,
+        rgba(43, 63, 242, 0.12) 38%,
+        var(--n-accent-soft) 50%,
+        rgba(43, 63, 242, 0.12) 62%,
+        rgba(43, 63, 242, 0) 100%
+      )
+      border-box;
+  animation: lp-painel-gira 6s linear infinite;
+}
+@keyframes lp-painel-gira {
+  to {
+    --lp-ang: 360deg;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lp-painel {
+    animation: none;
+    border: 1px solid var(--n-line);
+    background: rgba(255, 255, 255, 0.02);
+  }
+}
+
 /* ---------- raios do clique ---------- */
 .lp-raio {
   position: fixed;
