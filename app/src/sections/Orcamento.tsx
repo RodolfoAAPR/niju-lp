@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Capitulo, Titulo } from "@/components/Editorial";
-import { contato, mailtoOrcamento } from "@/lib/contato";
+import { Compass, MapPin, Navigation } from "lucide-react";
+import { contato, mailtoOrcamento, mapas } from "@/lib/contato";
 
 /* CAPÍTULO 09 · Orçamento: a ação única.
    Envio atual: abre o e-mail para o comercial Niju com o texto montado (a página diz isso com clareza).
@@ -132,6 +133,23 @@ export default function Orcamento() {
             {contato.email}
           </a>
           <p className="text-[var(--n-text-2)]">{contato.endereco}</p>
+          <div className="flex flex-col gap-2">
+            <p className="lp-eyebrow">Como chegar</p>
+            <div className="flex flex-wrap gap-2">
+              <a href={mapas.google} target="_blank" rel="noopener noreferrer" className="lp-btn lp-btn--contorno lp-btn--sm">
+                <MapPin size={15} aria-hidden />
+                <span className="lp-btn-txt">Google Maps</span>
+              </a>
+              <a href={mapas.waze} target="_blank" rel="noopener noreferrer" className="lp-btn lp-btn--contorno lp-btn--sm">
+                <Navigation size={15} aria-hidden />
+                <span className="lp-btn-txt">Waze</span>
+              </a>
+              <a href={mapas.apple} target="_blank" rel="noopener noreferrer" className="lp-btn lp-btn--contorno lp-btn--sm">
+                <Compass size={15} aria-hidden />
+                <span className="lp-btn-txt">Apple Maps</span>
+              </a>
+            </div>
+          </div>
         </aside>
       </div>
     </section>

@@ -13,6 +13,15 @@ export const contato = {
   razao: "NIJU INDÚSTRIA E COMÉRCIO DE IMPLEMENTOS RODOVIARIOS LTDA",
 };
 
+const onde = encodeURIComponent(`Niju Implementos Rodoviários, ${contato.endereco}`);
+
+/* Abrir o endereço no app de mapas. */
+export const mapas = {
+  google: `https://www.google.com/maps/search/?api=1&query=${onde}`,
+  waze: `https://www.waze.com/ul?q=${onde}&navigate=yes`,
+  apple: `https://maps.apple.com/?q=${onde}`,
+};
+
 export function mailtoOrcamento(produto: string, nome: string, empresa: string, whatsapp: string, mensagem: string) {
   const assunto = `Pedido de orçamento: ${produto}`;
   const corpo = [`Nome: ${nome}`, `Empresa: ${empresa}`, `WhatsApp: ${whatsapp}`, `Produto: ${produto}`, "", mensagem].join("\n");

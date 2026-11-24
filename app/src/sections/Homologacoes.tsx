@@ -1,14 +1,15 @@
 import { Capitulo, Corpo, Rolo, Titulo } from "@/components/Editorial";
 
-/* CAPÍTULO 03 · Homologações: a prova social mais valiosa. BRF e Seara entram como placa de texto
-   até o cliente mandar os logos oficiais (os originais do site retornam 403). */
+/* CAPÍTULO 03 · Homologações: a prova social mais valiosa. BRF segue como placa de texto
+   até o cliente mandar o logo oficial (fontes públicas bloqueadas). */
 
 const logos = [
   { img: "assets/logo-aurora.png", nome: "Aurora" },
   { img: "assets/logo-jbs.png", nome: "JBS" },
   { img: "assets/logo-dia.png", nome: "DIA" },
+  { img: "assets/logo-seara.svg", nome: "Seara" },
 ];
-const placas = ["BRF", "Seara"];
+const placas = ["BRF"];
 
 export default function Homologacoes() {
   return (

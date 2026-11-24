@@ -654,6 +654,43 @@ select.lp-field option {
   max-width: 60ch;
 }
 
+/* ---------- letreiros rolantes ---------- */
+.lp-ticker {
+  overflow: hidden;
+}
+.lp-ticker-pista {
+  display: flex;
+  width: max-content;
+  animation: lp-ticker 30s linear infinite;
+}
+.lp-ticker-reverso {
+  animation-direction: reverse;
+}
+@keyframes lp-ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lp-ticker-pista {
+    animation: none;
+  }
+}
+
+/* ---------- barra de CTA grudada (só celular) ---------- */
+.lp-sticky-cta {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 40;
+  padding: 0.75rem 1.25rem calc(0.75rem + env(safe-area-inset-bottom));
+  background: linear-gradient(to top, rgba(16, 20, 24, 0.96), rgba(16, 20, 24, 0.75) 70%, transparent);
+  transform: translateY(110%);
+  transition: transform 0.5s var(--lp-ease);
+}
+.lp-sticky-cta[data-ver] {
+  transform: none;
+}
+
 /* ---------- modos de teste de fluidez (?teste=...) ---------- */
 html.t-fio .lp-fio,
 html.t-reveal [data-reveal],

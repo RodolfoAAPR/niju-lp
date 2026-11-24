@@ -19,4 +19,5 @@ Fotos do feed exigem login: pedir ao cliente que arraste as escolhidas no chat.
 - banner-familia.png, portfolio-wide.jpg, clientes-bg.jpg, produto-wide-05.png, paleteiro.jpg.
 - portfolio-sebominas.jpg, portfolio-nobre.jpg, portfolio-friboi.jpg, portfolio-gral.jpg.
 - logo-aurora.png, logo-jbs.png, logo-dia.png.
-- FALTAM (erro 403 no original): logo-brf.png, logo-seara.png. Pedir ao cliente ou usar kit de imprensa das marcas.
+- logo-seara.svg: Seara Alimentos 2024, da Wikimedia Commons com fonte seara.com.br (SVG original).
+- FALTA: logo-brf (403 no site Niju, 429 na Wikimedia, oficiais sem arquivo direto). Pedir ao cliente.

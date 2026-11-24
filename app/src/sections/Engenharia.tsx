@@ -1,4 +1,5 @@
 import { Capitulo, Titulo } from "@/components/Editorial";
+import Holofote from "@/components/Holofote";
 import { DicaArraste, Regua, useCarrossel } from "@/components/CarrosselRegua";
 
 /* CAPÍTULO 05 · Por que Niju: 4 pilares, um fato por card. Grade no desktop, carrossel no celular. */
@@ -24,13 +25,19 @@ const pilares = [
 
 function Card({ n, titulo, texto }: { n: string; titulo: string; texto: string }) {
   return (
-    <article className="relative flex h-full min-h-[240px] flex-col gap-4 overflow-hidden rounded-2xl border border-[var(--n-line)] bg-[var(--n-panel)] p-7 transition-colors duration-500 hover:border-[var(--n-accent-soft)]">
+    <Holofote
+      className="flex h-full min-h-[240px] flex-col gap-4"
+      style={{ borderRadius: "1rem", ["--spotlight-card-surface" as string]: "var(--n-panel)" }}
+      spotlightColor="rgba(43, 63, 242, 0.55)"
+      intensity={0.5}
+      spotlightSize={260}
+    >
       <span aria-hidden className="lp-display text-6xl text-[var(--n-accent)] opacity-90">
         {n}
       </span>
       <h3 className="text-xl font-bold">{titulo}</h3>
       <p className="text-[var(--n-text-2)]">{texto}</p>
-    </article>
+    </Holofote>
   );
 }
 

@@ -1,5 +1,18 @@
-import { Children, cloneElement, isValidElement, type ReactElement, type ReactNode } from "react";
+import { Children, cloneElement, isValidElement, useEffect, useState, type ReactElement, type ReactNode } from "react";
+import Magnet from "@/components/ui/Magnet";
 import { cn } from "@/lib/utils";
+
+/* O Magnet monta só no navegador, depois de hidratar: a primeira pintura é igual no servidor e no cliente. */
+function MagnetSeguro({ children }: { children: ReactNode }) {
+  const [ok, setOk] = useState(false);
+  useEffect(() => setOk(true), []);
+  if (!ok) return <>{children}</>;
+  return (
+    <Magnet padding={40} magnetStrength={4} maxOffset={9}>
+      {children}
+    </Magnet>
+  );
+}
 
 /* Peças tipográficas da Niju, seguindo o código de referência.
    - Palavras: divide o texto em palavras dentro de máscaras; sobem quando o pai ganha .is-in.
@@ -109,17 +122,19 @@ export function Botao({
   className?: string;
 }) {
   return (
-    <a
-      href={href}
-      {...(/^https?:/.test(href) ? { target: "_blank", rel: "noopener noreferrer" } : null)}
-      className={cn("lp-btn", `lp-btn--${variante}`, tamanho && `lp-btn--${tamanho}`, className)}
-    >
-      <span aria-hidden className="lp-btn-dot" />
-      <span className="lp-btn-txt">{children}</span>
-      <span aria-hidden className="lp-btn-arrow">
-        <Seta />
-      </span>
-    </a>
+    <MagnetSeguro>
+      <a
+        href={href}
+        {...(/^https?:/.test(href) ? { target: "_blank", rel: "noopener noreferrer" } : null)}
+        className={cn("lp-btn", `lp-btn--${variante}`, tamanho && `lp-btn--${tamanho}`, className)}
+      >
+        <span aria-hidden className="lp-btn-dot" />
+        <span className="lp-btn-txt">{children}</span>
+        <span aria-hidden className="lp-btn-arrow">
+          <Seta />
+        </span>
+      </a>
+    </MagnetSeguro>
   );
 }
 
