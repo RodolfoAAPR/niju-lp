@@ -33,6 +33,7 @@ type Props = {
   escurecerCelular?: boolean;
   velocidade?: number; // velocidade base do play e do reverso
   ramp?: number; // rampa de entrada e saída das faixas, em fração do vídeo
+  portalEstatico?: boolean; // no desktop sem vídeo, a foto sai pelo portal (padrão) ou rola inteira (false)
 };
 
 const MAX_RATE = 2.5;
@@ -95,6 +96,7 @@ export default function ScrollVideo({
   escurecerCelular = true,
   velocidade = 1,
   ramp = 0.035,
+  portalEstatico = true,
 }: Props) {
   const [mode, setMode] = useState<"static" | "loading" | "video">("static");
   const [loaded, setLoaded] = useState(0);
@@ -528,8 +530,10 @@ export default function ScrollVideo({
     return () => io.disconnect();
   }, [mode]);
 
-  // modo foto no desktop (vídeo indisponível; movimento reduzido fica de fora): a foto entra e sai pelo mesmo portal do vídeo
+  // modo foto no desktop (vídeo indisponível; movimento reduzido fica de fora): a foto entra e sai pelo mesmo portal do vídeo,
+  // salvo quando a cena pede para rolar inteira (portalEstatico={false})
   useEffect(() => {
+    if (!portalEstatico) return;
     if (mode !== "static" || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (matchMedia("(max-width: 899px)").matches) return; // celular: portal que abre sozinho, acima
     const s = sec.current;
@@ -561,7 +565,7 @@ export default function ScrollVideo({
       removeEventListener("resize", pedir);
       delete s.dataset.portal;
     };
-  }, [mode]);
+  }, [mode, portalEstatico]);
 
   const isVideo = mode !== "static";
   const bloco = !!blocoCelular && !isVideo; // celular: foto em bloco no alto da cena

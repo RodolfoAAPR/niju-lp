@@ -45,6 +45,7 @@ export default function Topo() {
       stillCelular="assets/portfolio-sebominas.jpg"
       blocoCelular="50% 40%"
       aspectoBloco="4 / 5"
+      portalEstatico={false}
       staticContent={
         <div className="lp-pad relative flex min-h-[100svh] flex-col justify-center gap-6 py-24 max-[899px]:min-h-0 max-[899px]:justify-start max-[899px]:pb-16 max-[899px]:pt-10">
           <MarcaHero className="is-in !items-start [&_.lp-marca-mascara]:w-[min(50vw,220px)] [&_.lp-marca-linha]:hidden" />
