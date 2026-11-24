@@ -2,7 +2,7 @@
 
 Contexto para quem (pessoa ou agente de IA) for mexer nesta landing page. Leia inteiro antes de mudar qualquer coisa.
 
-- **No ar (apresentação):** a definir (fora do Google até a marca liberar).
+- **No ar (apresentação):** https://rodolfoaapr.github.io/niju-lp/ (GitHub Pages via Actions, indexado).
 - **Domínio oficial:** a definir (publicado com `SITE_URL=https://dominio npm run build`).
 - **Código:** `app/` (React 19 + Vite + TypeScript + Tailwind v4, pré-renderizado).
 - **Remoto:** https://github.com/RodolfoAAPR/niju-lp (branch `main`). Pasta local segue `lp-niju`, padrão da skill.
