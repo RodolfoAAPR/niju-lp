@@ -37,11 +37,20 @@ Deploy do link de apresentação: `npx wrangler pages deploy dist --project-name
 
 ## Arquitetura da página
 
-A definir no Design Package. Base estrutural: https://autoseg-lp.pages.dev/
+Ordem das seções (`app/src/App.tsx`): Cabecalho · Topo · Manifesto · Homologacoes · Produtos · Engenharia · Portfolio · Empresa · Duvidas · Orcamento · Rodape.
+
+- Topo (`sections/Topo.tsx` + `components/ScrollVideo.tsx`): cena por gesto Tier 2 com 5 faixas; PROVISÓRIO sem os mp4, cai no estático completo. Abertura V1 com logo em PNG (`mix-blend-mode: screen`).
+- Produtos: abas no desktop, carrossel snap + régua no celular; escolhe o produto no formulário via localStorage.
+- Portfolio, Engenharia: carrossel snap + régua (`components/CarrosselRegua.tsx`).
+- Empresa: linha do tempo com `.lp-draw` e nós `--k/--pos` (`effects/pagina.ts`).
+- Manifesto: `.lp-manifesto` acende palavra por palavra (filhos diretos `span`).
+- Fio de frio: `#fio-progresso` com scaleY, só desktop.
+- Form: mailto para vendas@niju.com.br até o cliente entregar o endpoint Formspree (`FORMSPREE_ENDPOINT` em `Orcamento.tsx`).
+- `?ver=<id>` pula para a seção (revisão por print). `?teste=fio,reveal` desliga peças (fluidez).
 
 ## Celular
 
-A definir na construção. Regra: foto própria no lugar do vídeo, carrossel com scroll-snap no lugar de palco grudado, efeitos pesados desligados, fluidez medida.
+Foto `portfolio-sebominas.jpg` em bloco 4:5 no topo (sem vídeo), carrosséis snap com régua em Produtos, Engenharia e Portfólio, Lenis só com mouse, fio de frio só no desktop, alturas em lvh/svh. Estouro em 360/390 corrigido no Manifesto. Fluidez em fps ainda não medida (sem Android aqui).
 
 ## Conteúdo e decisões
 
@@ -49,11 +58,15 @@ A definir na construção. Regra: foto própria no lugar do vídeo, carrossel co
 - 2026-11-23: repositório `lp-niju`, padrão da skill. Remoto ainda não ligado (falta `gh auth login`).
 - 2026-11-23: Fase 3 caminho A (vídeo). Fase 4: conceito Descida da madrugada, Tier 2, marca V1 máscara, Trio A Estrada. Paleta: grafite, azul sinal, gelo.
 - 2026-11-23: Fase 5 aprovada. CLI Higgsfield instalado. Fotos em `app/public/assets/`, fontes em `app/public/fonts/`. Falta login no Higgsfield.
+- 2026-11-23: Fase 8 construída com topo provisório em foto (rodolfo escolheu construir com provisório). Autoteste: 360 a 1920 sem estouro, form erro/sucesso, movimento reduzido, gate de copy zerado, SITE_URL testado. Prints em `review/pw-*`.
 
 ## Pendências
 
 1. `gh auth login` para ligar o remoto (dono: Rodolfo).
 2. Rodolfo confirmar se o link de apresentação pode ser publicado sem pedir a cada mudança.
-3. Recolher materiais oficiais do site e do Instagram para `contexto/`.
-4. ffmpeg instalar antes da Fase 7 (`winget install Gyan.FFmpeg`).
-5. Higgsfield conectar antes da Fase 6, com conta e saldo confirmados.
+3. Conta e login no Higgsfield para a Fase 6 (dono: Rodolfo).
+4. Logos BRF e Seara oficiais (403 nos originais do site).
+5. Endpoint Formspree do cliente (form usa mailto até lá).
+6. ffmpeg instalar antes da Fase 7 (`winget install Gyan.FFmpeg`).
+7. Fotos do feed do Instagram (pedem login): cliente arrasta no chat se quiser trocar alguma.
+8. Regra provisória `#topo .lp-foto img { filter: brightness(0.62) }`: remover quando o still virar o primeiro quadro do vídeo.

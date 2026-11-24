@@ -18,9 +18,11 @@ export function iniciarRolagemSuave() {
     autoRaf: true,
   });
   atual = lenis;
+  (window as unknown as { __lenis?: Lenis }).__lenis = lenis; // as cenas em vídeo seguram e soltam a página por aqui
   return () => {
     lenis.destroy();
     if (atual === lenis) atual = null;
+    delete (window as unknown as { __lenis?: Lenis }).__lenis;
   };
 }
 

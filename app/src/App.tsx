@@ -1,17 +1,43 @@
 import { useEffect } from "react";
 import "lenis/dist/lenis.css";
 import { iniciarRolagemSuave } from "@/lib/rolagemSuave";
+import efeitosPagina from "@/effects/pagina";
+import Cabecalho from "@/sections/Cabecalho";
 import Topo from "@/sections/Topo";
+import Manifesto from "@/sections/Manifesto";
+import Homologacoes from "@/sections/Homologacoes";
+import Produtos from "@/sections/Produtos";
+import Engenharia from "@/sections/Engenharia";
+import Portfolio from "@/sections/Portfolio";
+import Empresa from "@/sections/Empresa";
+import Duvidas from "@/sections/Duvidas";
+import Orcamento from "@/sections/Orcamento";
+import Rodape from "@/sections/Rodape";
 
-/* Cada seção da LP é um componente em src/sections/. Componentes copiados do 21st.dev,
-   React Bits e shadcn ficam em src/components/ui/ com o código original. */
+/* LP Niju: menu, topo com cena, capítulos 02 a 09 e rodapé. */
 export default function App() {
-  // rolagem com inércia, como no Mac (Lenis): padrão em toda LP
   useEffect(() => iniciarRolagemSuave(), []);
+  useEffect(() => efeitosPagina(), []);
 
   return (
-    <main>
-      <Topo />
-    </main>
+    <>
+      <Cabecalho />
+      {/* fio de frio: a assinatura da marca, só no desktop */}
+      <div aria-hidden className="lp-fio pointer-events-none fixed bottom-0 left-6 top-0 z-[5] hidden w-px bg-[var(--n-line)] lg:block">
+        <div id="fio-progresso" className="h-full w-full origin-top bg-gradient-to-b from-[var(--n-accent-soft)] to-[var(--n-accent)]" style={{ transform: "scaleY(0)" }} />
+      </div>
+      <main>
+        <Topo />
+        <Manifesto />
+        <Homologacoes />
+        <Produtos />
+        <Engenharia />
+        <Portfolio />
+        <Empresa />
+        <Duvidas />
+        <Orcamento />
+      </main>
+      <Rodape />
+    </>
   );
 }
