@@ -29,9 +29,6 @@ export default function Rodape() {
             <a href={contato.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--n-text-1)]">
               Facebook
             </a>
-            <a href={contato.site} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--n-text-1)]">
-              Site oficial
-            </a>
           </nav>
         </div>
         <nav aria-label="Mapa da página">

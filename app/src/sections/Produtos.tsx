@@ -93,7 +93,9 @@ export default function Produtos() {
           ))}
         </div>
         <div role="tabpanel" className="mt-8 grid grid-cols-[1.1fr_1fr] gap-8">
-          <Card p={produtos[aba]} />
+          <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl bg-white p-8">
+            <img src={produtos[aba].foto} alt={produtos[aba].nome} loading="lazy" decoding="async" className="max-h-full w-auto object-contain" />
+          </div>
           <div className="flex flex-col justify-center gap-5">
             <h3 className="lp-display text-[clamp(1.8rem,3.5vw,2.8rem)]">{produtos[aba].nome}</h3>
             <p className="lp-intro max-w-[36ch]">{produtos[aba].linha}</p>
@@ -103,8 +105,12 @@ export default function Produtos() {
                 onClick={() => escolher(produtos[aba].id)}
                 className="lp-btn lp-btn--claro"
               >
-                <span aria-hidden className="lp-btn-dot" />
                 <span className="lp-btn-txt">Pedir orçamento deste</span>
+                <span aria-hidden className="lp-btn-arrow">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
+                    <path d="M2.343 8h11.314m0 0L8.673 3.016M13.657 8l-4.984 4.984" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
               </a>
             </p>
           </div>

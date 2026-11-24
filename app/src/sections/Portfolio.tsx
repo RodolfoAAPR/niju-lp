@@ -8,7 +8,7 @@ const fotos = [
   { img: "assets/portfolio-nobre.jpg", nome: "Nobre" },
   { img: "assets/portfolio-gral.jpg", nome: "Gral" },
   { img: "assets/portfolio-friboi.jpg", nome: "Friboi" },
-  { img: "assets/portfolio-wide.jpg", nome: "Estrada" },
+  { img: "assets/portfolio-brasnica.jpg", nome: "Brasnica" },
 ];
 
 function Card({ img, nome, i }: { img: string; nome: string; i: number }) {

@@ -33,7 +33,7 @@ export default function Trilho() {
     };
   }, []);
   return (
-    <nav aria-label="Capítulos" className="fixed bottom-0 left-6 top-0 z-[5] hidden w-[130px] xl:block">
+    <nav aria-label="Capítulos" className="fixed bottom-0 left-6 top-0 z-[5] hidden w-[130px] min-[1420px]:block">
       <div aria-hidden className="absolute bottom-24 left-0 top-24 w-px bg-[var(--n-line)]">
         <div ref={barra} className="h-full w-full origin-top bg-[var(--n-accent-soft)]" style={{ transform: "scaleY(0)" }} />
       </div>
