@@ -72,6 +72,7 @@ Foto `portfolio-sebominas.jpg` em bloco 4:5 no topo (sem vídeo), carrosséis sn
 - 2026-11-23: restyle no idioma AutoSeg com cores Niju: nave em pílula, trilho de capítulos, caixa alta sem serifada, botões com chip de seta, seu caso em cartões, painel no orçamento, rodapé com ícones (rodolfo pediu).
 - 2026-11-23: removido site oficial do rodapé; trilho só acima de 1420px; foto Brasnica no lugar da azulada; painel de produtos sem texto duplicado (rodolfo pediu).
 - 2026-11-23: removido card 05 homologações (5 logos em 1 linha) e rodapé refeito em fluxo simples sem voltar-ao-topo (rodolfo pediu).
+- 2026-11-23: logo BRF oficial nos cards (Seeklogo, Wikimedia com 429).
 
 ## Pendências
 

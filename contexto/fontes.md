@@ -20,5 +20,5 @@ Fotos do feed exigem login: pedir ao cliente que arraste as escolhidas no chat.
 - portfolio-sebominas.jpg, portfolio-nobre.jpg, portfolio-friboi.jpg, portfolio-gral.jpg.
 - logo-aurora.png, logo-jbs.png, logo-dia.png.
 - logo-seara.svg: Seara Alimentos 2024, da Wikimedia Commons com fonte seara.com.br (SVG original).
-- FALTA: logo-brf (403 no site Niju, 429 na Wikimedia, oficiais sem arquivo direto). Pedir ao cliente.
+- logo-brf.png: identidade atual (globo + brf), 600px, do Seeklogo (Wikimedia com 429 para este IP).
 - mapa-niju-0..3.png: 4 ladrilhos OSM z17 da Rua Delfim Moreira Ribeiro, Chapecó (-27.0785596, -52.6277967). Alfinete em 40,2%/47,3%. Dados © OpenStreetMap, ODbL.
