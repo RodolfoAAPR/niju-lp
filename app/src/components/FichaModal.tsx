@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Check, X } from "lucide-react";
+import { BadgeCheck, Check, ShieldCheck, X } from "lucide-react";
 import { Botao } from "@/components/Editorial";
 
 /* Ficha do produto em modal: galeria, especificações da ficha oficial, selos e CTA.
@@ -169,9 +169,21 @@ export default function FichaModal({ id, onFechar }: { id: string | null; onFech
                 </li>
               ))}
             </ul>
-            <div className="flex items-center gap-3">
-              <img src="assets/selo-iso.jpg" alt="Certificado ISO 9001" loading="lazy" decoding="async" className="h-14 w-auto rounded-lg object-contain" />
-              <img src="assets/selo-pecas.jpg" alt="Peças originais Niju" loading="lazy" decoding="async" className="h-14 w-auto rounded-lg object-contain" />
+            <div className="grid grid-cols-2 gap-3">
+              <div className="flex items-center gap-3 rounded-2xl border border-[var(--n-line)] bg-[var(--n-canvas)] p-4">
+                <ShieldCheck size={26} aria-hidden className="flex-none text-[var(--n-accent-soft)]" />
+                <div>
+                  <p className="font-bold leading-tight">ISO 9001</p>
+                  <p className="text-sm leading-snug text-[var(--n-text-2)]">Empresa certificada</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 rounded-2xl border border-[var(--n-line)] bg-[var(--n-canvas)] p-4">
+                <BadgeCheck size={26} aria-hidden className="flex-none text-[var(--n-accent-soft)]" />
+                <div>
+                  <p className="font-bold leading-tight">ANFIR</p>
+                  <p className="text-sm leading-snug text-[var(--n-text-2)]">Normas da ANFIR</p>
+                </div>
+              </div>
             </div>
             <p>
               <Botao

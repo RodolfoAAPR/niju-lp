@@ -77,6 +77,7 @@ Foto `portfolio-sebominas.jpg` em bloco 4:5 no topo (sem vídeo), carrosséis sn
 - 2026-11-23: sem "fotos reais" e sem "implementos rodoviários" no hero, mapa com zoom 3 níveis, pince 1994 "fundada em Chapecó", raios azuis no clique (rodolfo pediu).
 - 2026-11-23: favicon oficial, seção ativa translúcida no menu, luz circulando o painel do orçamento (rodolfo pediu).
 - 2026-11-23: ficha de produto em modal com galeria, specs e selos; fotos grandes no lugar das pequenas (rodolfo pediu).
+- 2026-11-23: selos refeitos em texto nítido (ISO 9001 e ANFIR; o segundo selo era ANFIR, não peças).
 
 ## Pendências
 
