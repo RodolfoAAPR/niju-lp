@@ -71,7 +71,7 @@ export default function Topo() {
               ["30+", "anos de estrada"],
               ["4", "produtos na linha"],
               ["5", "homologações"],
-              ["1994", "desde, em Chapecó"],
+              ["1994", "fábrica em Chapecó"],
             ].map(([n, rotulo]) => (
               <div key={rotulo} className="flex min-w-[130px] flex-1 flex-col gap-1 rounded-xl border border-[var(--n-line)] bg-black/40 px-4 py-3 sm:flex-none sm:basis-[calc(25%-0.75rem)]">
                 <dd className="lp-display text-3xl text-white">

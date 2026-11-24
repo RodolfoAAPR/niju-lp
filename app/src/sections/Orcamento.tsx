@@ -1,7 +1,7 @@
 import { Compass, MapPin, Navigation } from "lucide-react";
 import { Capitulo, Titulo } from "@/components/Editorial";
 import ChatOrcamento from "@/components/ChatOrcamento";
-import { contato, mapas } from "@/lib/contato";
+import { contato, mapas, whatsappUrl } from "@/lib/contato";
 
 /* CAPÍTULO 09 · Orçamento: a ação única virou um chat em 5 passos, como o da LP de referência.
    Ao lado, contato direto e o mapa da fábrica com o alfinete da Niju (ladrilhos OSM servidos no site). */
@@ -41,7 +41,7 @@ export default function Orcamento() {
 
         <aside className="flex flex-col justify-center gap-6 rounded-2xl border border-[var(--n-line)] p-8">
           <p className="lp-eyebrow">Prefere falar direto</p>
-          <a href={contato.telefoneHref} className="lp-display text-3xl md:text-4xl">
+          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="lp-display text-3xl md:text-4xl">
             {contato.telefoneExibido}
           </a>
           <a href={`mailto:${contato.email}`} className="text-lg text-[var(--n-gelo)] underline-offset-4 hover:underline">
@@ -62,21 +62,25 @@ export default function Orcamento() {
               Mapa © OpenStreetMap
             </figcaption>
           </figure>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-3">
             <p className="lp-eyebrow">Como chegar</p>
-            <div className="flex flex-wrap gap-2">
-              <a href={mapas.google} target="_blank" rel="noopener noreferrer" className="lp-btn lp-btn--contorno lp-btn--sm">
-                <MapPin size={15} aria-hidden />
-                <span className="lp-btn-txt">Google Maps</span>
-              </a>
-              <a href={mapas.waze} target="_blank" rel="noopener noreferrer" className="lp-btn lp-btn--contorno lp-btn--sm">
-                <Navigation size={15} aria-hidden />
-                <span className="lp-btn-txt">Waze</span>
-              </a>
-              <a href={mapas.apple} target="_blank" rel="noopener noreferrer" className="lp-btn lp-btn--contorno lp-btn--sm">
-                <Compass size={15} aria-hidden />
-                <span className="lp-btn-txt">Apple Maps</span>
-              </a>
+            <div className="grid grid-cols-3 gap-2">
+              {[
+                { href: mapas.google, Icone: MapPin, texto: "Google Maps" },
+                { href: mapas.waze, Icone: Navigation, texto: "Waze" },
+                { href: mapas.apple, Icone: Compass, texto: "Apple Maps" },
+              ].map((m) => (
+                <a
+                  key={m.texto}
+                  href={m.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex min-h-[64px] flex-col items-center justify-center gap-1 rounded-2xl border border-[var(--n-line)] px-1 text-center transition-colors hover:border-[var(--n-accent-soft)]"
+                >
+                  <m.Icone size={17} aria-hidden className="text-[var(--n-accent-soft)]" />
+                  <span className="text-xs font-bold leading-tight">{m.texto}</span>
+                </a>
+              ))}
             </div>
           </div>
         </aside>

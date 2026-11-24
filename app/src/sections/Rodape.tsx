@@ -1,4 +1,5 @@
-import { contato } from "@/lib/contato";
+import { Facebook, Instagram } from "lucide-react";
+import { contato, whatsappUrl } from "@/lib/contato";
 
 /* Rodapé simples: marca, navegação, contato e dados legais, sem botões. */
 
@@ -18,12 +19,24 @@ export default function Rodape() {
           <a href="#topo" aria-label="Niju, voltar ao topo" className="block w-[130px]">
             <img src="assets/logo-niju.png" alt="Niju" loading="lazy" decoding="async" className="h-auto w-full [mix-blend-mode:screen]" />
           </a>
-          <nav aria-label="Redes" className="flex gap-6 font-mono text-[12px] uppercase tracking-[0.18em] text-[var(--n-text-2)]">
-            <a href={contato.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--n-text-1)]">
-              Instagram
+          <nav aria-label="Redes" className="flex gap-3">
+            <a
+              href={contato.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram da Niju"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--n-line)] text-[var(--n-text-2)] transition-colors hover:border-[var(--n-accent-soft)] hover:text-[var(--n-text-1)]"
+            >
+              <Instagram size={18} aria-hidden />
             </a>
-            <a href={contato.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--n-text-1)]">
-              Facebook
+            <a
+              href={contato.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook da Niju"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--n-line)] text-[var(--n-text-2)] transition-colors hover:border-[var(--n-accent-soft)] hover:text-[var(--n-text-1)]"
+            >
+              <Facebook size={18} aria-hidden />
             </a>
           </nav>
         </div>
@@ -35,7 +48,7 @@ export default function Rodape() {
           ))}
         </nav>
         <p className="max-w-[70ch] leading-relaxed text-[var(--n-text-2)]">
-          <a href={contato.telefoneHref} className="font-bold text-[var(--n-text-1)] hover:underline">
+          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="font-bold text-[var(--n-text-1)] hover:underline">
             {contato.telefoneExibido}
           </a>
           {" · "}

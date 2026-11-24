@@ -22,6 +22,9 @@ export const mapas = {
   apple: `https://maps.apple.com/?q=${onde}`,
 };
 
+/* Telefone abre o WhatsApp com mensagem pronta. */
+export const whatsappUrl = `https://wa.me/554933615191?text=${encodeURIComponent("Olá, quero receber mais informações dos produtos Niju")}`;
+
 export function mailtoOrcamento(produto: string, nome: string, empresa: string, whatsapp: string, mensagem: string) {
   const assunto = `Pedido de orçamento: ${produto}`;
   const corpo = [`Nome: ${nome}`, `Empresa: ${empresa}`, `WhatsApp: ${whatsapp}`, `Produto: ${produto}`, "", mensagem].join("\n");
