@@ -49,9 +49,6 @@ export default function Topo() {
       staticContent={
         <div className="lp-pad relative flex min-h-[100svh] flex-col justify-center gap-6 py-24 max-[899px]:min-h-0 max-[899px]:justify-start max-[899px]:pb-16 max-[899px]:pt-10">
           <MarcaHero className="is-in !items-start [&_.lp-marca-mascara]:w-[min(50vw,220px)] [&_.lp-marca-linha]:hidden" />
-          <p className="lp-eyebrow lp-over-video w-fit rounded-full border border-[var(--n-line)] bg-black/40 px-4 py-2">
-            Chapecó SC
-          </p>
           <h1 data-words className="lp-display lp-over-video max-w-[12ch] text-[clamp(2.8rem,7.5vw,6rem)] text-white">
             <Palavras>
               Com Niju <em>dura mais.</em>
