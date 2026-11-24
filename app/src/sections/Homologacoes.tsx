@@ -1,4 +1,4 @@
-import { Capitulo, Corpo, Rolo, Titulo } from "@/components/Editorial";
+import { Capitulo, Corpo, Titulo } from "@/components/Editorial";
 
 /* CAPÍTULO 03 · Homologações: a prova social mais valiosa. BRF segue como placa de texto
    até o cliente mandar o logo oficial (fontes públicas bloqueadas). */
@@ -19,27 +19,17 @@ export default function Homologacoes() {
         Homologada nos maiores frigoríficos <em>do país.</em>
       </Titulo>
       <Corpo className="mt-6">Se o seu frigorífico não está na lista, pergunte no orçamento.</Corpo>
-      <div data-reveal className="mt-8 flex flex-wrap items-stretch gap-4">
+      <div data-reveal className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
         {logos.map((l) => (
-          <figure
-            key={l.nome}
-            className="flex min-h-[120px] w-[calc(50%-0.5rem)] items-center justify-center rounded-2xl bg-white p-6 sm:w-[calc(33%-0.75rem)] lg:w-[220px]"
-          >
-            <img src={l.img} alt={l.nome} loading="lazy" decoding="async" className="max-h-[64px] w-auto object-contain" />
+          <figure key={l.nome} className="flex min-h-[104px] items-center justify-center rounded-2xl bg-white p-5">
+            <img src={l.img} alt={l.nome} loading="lazy" decoding="async" className="max-h-[56px] w-auto object-contain" />
           </figure>
         ))}
         {placas.map((p) => (
-          <figure
-            key={p}
-            className="flex min-h-[120px] w-[calc(50%-0.5rem)] items-center justify-center rounded-2xl border border-dashed border-[var(--n-line)] bg-transparent p-6 sm:w-[calc(33%-0.75rem)] lg:w-[220px]"
-          >
+          <figure key={p} className="flex min-h-[104px] items-center justify-center rounded-2xl border border-dashed border-[var(--n-line)] bg-transparent p-5">
             <span className="font-mono text-sm uppercase tracking-[0.2em] text-[var(--n-text-2)]">{p}</span>
           </figure>
         ))}
-        <div className="flex min-h-[120px] w-[calc(50%-0.5rem)] flex-col items-center justify-center gap-1 rounded-2xl bg-[var(--n-accent)] p-6 sm:w-[calc(33%-0.75rem)] lg:w-[220px]">
-          <Rolo texto="05" className="lp-display text-5xl text-white" />
-          <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/85">homologações</span>
-        </div>
       </div>
     </section>
   );
