@@ -5,6 +5,7 @@ Contexto para quem (pessoa ou agente de IA) for mexer nesta landing page. Leia i
 - **No ar (apresentação):** a definir (fora do Google até a marca liberar).
 - **Domínio oficial:** a definir (publicado com `SITE_URL=https://dominio npm run build`).
 - **Código:** `app/` (React 19 + Vite + TypeScript + Tailwind v4, pré-renderizado).
+- **Remoto:** https://github.com/RodolfoAAPR/niju-lp (branch `main`). Pasta local segue `lp-niju`, padrão da skill.
 - **Decisões de criação:** `design-package.md`. **Movimento:** `MOTION-DESIGN-SYSTEM.md`.
 - **Fonte dos fatos:** `contexto/` (textos oficiais do cliente). Nenhum número, nome ou promessa fora dele.
 - **Brutos e testes:** `review/` (nunca vai para o site).
@@ -60,6 +61,7 @@ Foto `portfolio-sebominas.jpg` em bloco 4:5 no topo (sem vídeo), carrosséis sn
 - 2026-11-23: Fase 5 aprovada. CLI Higgsfield instalado. Fotos em `app/public/assets/`, fontes em `app/public/fonts/`. Falta login no Higgsfield.
 - 2026-11-23: Fase 8 construída com topo provisório em foto (rodolfo escolheu construir com provisório). Autoteste: 360 a 1920 sem estouro, form erro/sucesso, movimento reduzido, gate de copy zerado, SITE_URL testado. Prints em `review/pw-*`.
 - 2026-11-23: link de apresentação liberado para publicar sem pedir a cada mudança. Projeto Pages: `lp-niju`. Falta token Cloudflare do rodolfo.
+- 2026-11-23: remoto ligado no `niju-lp` existente (rodolfo escolheu reaproveitar). Push com a conta da máquina via Credential Manager.
 
 ## Pendências
 
