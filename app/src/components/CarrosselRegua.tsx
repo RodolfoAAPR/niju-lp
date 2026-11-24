@@ -65,8 +65,10 @@ export function Regua({ rotulos, ativo, irPara, nome }: { rotulos: string[]; ati
       <ol className="relative flex justify-between">
         {rotulos.map((r, i) => (
           <li key={r} className="flex w-9 flex-col items-center" style={{ ["--pos" as string]: i / (total - 1) }}>
-            <button type="button" aria-label={nome(i)} aria-current={i === ativo} onClick={() => irPara(i)} className="lp-etapa-no lp-etapa-no--ouro">
-              <span className="lp-etapa-num">{String(i + 1).padStart(2, "0")}</span>
+            <button type="button" aria-label={nome(i)} aria-current={i === ativo} onClick={() => irPara(i)} className="lp-etapa-no">
+              <span className="lp-etapa-circulo">
+                <span className="lp-etapa-num">{String(i + 1).padStart(2, "0")}</span>
+              </span>
             </button>
             <span className={`mt-2.5 whitespace-nowrap font-mono text-[10px] tracking-[0.08em] tabular-nums transition-colors duration-500 ${i <= ativo ? "text-[var(--lp-city)]" : "text-[var(--lp-text-2)]"}`}>
               {r}

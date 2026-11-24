@@ -120,6 +120,39 @@ body {
   color: var(--n-text-1);
   font-family: "Archivo", system-ui, sans-serif;
   overflow-x: clip;
+  touch-action: manipulation;
+}
+button,
+summary,
+a {
+  cursor: pointer;
+}
+:focus-visible {
+  outline: 2px solid var(--n-accent-soft);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+section[id] {
+  scroll-margin-top: 84px;
+}
+
+/* ---------- link de pulo (teclado e leitor de tela) ---------- */
+.lp-skip {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  background: var(--n-accent);
+  color: #fff;
+  font-weight: 700;
+  padding: 0.8rem 1.4rem;
+  border-radius: 999px;
+  transform: translateY(-300%);
+  transition: transform 0.3s var(--lp-ease-out);
+}
+.lp-skip:focus-visible {
+  transform: none;
+  outline-color: #fff;
 }
 
 /* ---------- peças tipográficas ---------- */
@@ -204,6 +237,7 @@ body {
 .lp-btn--sm {
   padding: 0.65rem 1.3rem;
   font-size: 0.9rem;
+  min-height: 44px;
 }
 .lp-btn-dot {
   width: 8px;
@@ -560,6 +594,15 @@ html.lenis {
   flex: none;
 }
 .lp-etapa-no {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+}
+.lp-etapa-circulo {
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -576,7 +619,7 @@ html.lenis {
   color: var(--n-text-2);
   transition: color 0.5s;
 }
-li:has(> .lp-etapa-no[aria-current="true"]) .lp-etapa-no {
+li:has(> .lp-etapa-no[aria-current="true"]) .lp-etapa-circulo {
   border-color: var(--n-accent-soft);
   box-shadow: 0 0 16px rgba(43, 63, 242, 0.5);
 }
@@ -653,6 +696,24 @@ select.lp-field option {
   line-height: 1.65;
   max-width: 60ch;
 }
+.lp-duvida[open] .lp-resposta {
+  animation: lp-duvida-in 0.45s var(--lp-ease-out);
+}
+@keyframes lp-duvida-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lp-duvida[open] .lp-resposta {
+    animation: none;
+  }
+}
 
 /* ---------- letreiros rolantes ---------- */
 .lp-ticker {
@@ -665,6 +726,10 @@ select.lp-field option {
 }
 .lp-ticker-reverso {
   animation-direction: reverse;
+}
+.lp-ticker:hover .lp-ticker-pista,
+.lp-ticker:focus-within .lp-ticker-pista {
+  animation-play-state: paused;
 }
 @keyframes lp-ticker {
   to {

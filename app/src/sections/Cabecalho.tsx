@@ -12,10 +12,33 @@ const links = [
 
 export default function Cabecalho() {
   const [emCena, setEmCena] = useState(false);
+  const [ativa, setAtiva] = useState("");
   useEffect(() => {
     const ouvir = (e: Event) => setEmCena((e as CustomEvent<{ ativa: boolean }>).detail.ativa);
     addEventListener("lp:cena", ouvir);
     return () => removeEventListener("lp:cena", ouvir);
+  }, []);
+  useEffect(() => {
+    let raf = 0;
+    const medir = () => {
+      raf = 0;
+      const linha = innerHeight * 0.4;
+      let atual = "";
+      for (const l of links) {
+        const el = document.querySelector(l.href);
+        if (el && el.getBoundingClientRect().top <= linha) atual = l.href;
+      }
+      setAtiva(atual);
+    };
+    const pedir = () => {
+      if (!raf) raf = requestAnimationFrame(medir);
+    };
+    addEventListener("scroll", pedir, { passive: true });
+    medir();
+    return () => {
+      cancelAnimationFrame(raf);
+      removeEventListener("scroll", pedir);
+    };
   }, []);
   return (
     <header data-cena={emCena ? "1" : undefined} className="lp-cabecalho">
@@ -25,14 +48,14 @@ export default function Cabecalho() {
         </a>
         <nav aria-label="Seções" className="hidden items-center gap-7 font-mono text-[12px] uppercase tracking-[0.18em] text-[var(--n-text-2)] min-[900px]:flex">
           {links.map((l) => (
-            <LinkRolo key={l.href} href={l.href} className="hover:text-[var(--n-text-1)]">
+            <LinkRolo key={l.href} href={l.href} atual={ativa === l.href} className={ativa === l.href ? "!text-[var(--n-text-1)]" : "hover:text-[var(--n-text-1)]"}>
               {l.texto}
             </LinkRolo>
           ))}
         </nav>
         <a
           href="#orcamento"
-          className="rounded-full bg-[var(--n-accent)] px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[var(--n-accent-hover)]"
+          className="inline-flex min-h-[44px] items-center rounded-full bg-[var(--n-accent)] px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[var(--n-accent-hover)]"
         >
           Solicitar orçamento
         </a>

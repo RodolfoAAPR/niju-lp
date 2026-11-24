@@ -23,6 +23,9 @@ export default function App() {
 
   return (
     <>
+      <a href="#orcamento" className="lp-skip">
+        Pular para o orçamento
+      </a>
       <Cabecalho />
       {/* fio de frio: a assinatura da marca, só no desktop */}
       <div aria-hidden className="lp-fio pointer-events-none fixed bottom-0 left-6 top-0 z-[5] hidden w-px bg-[var(--n-line)] lg:block">

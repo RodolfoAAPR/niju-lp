@@ -61,6 +61,9 @@ export default function Topo() {
           <p data-reveal>
             <Botao href="#orcamento">Solicitar orçamento</Botao>
           </p>
+          <p data-reveal className="font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--n-text-2)]">
+            Orçamento em 5 perguntas · Sem compromisso
+          </p>
         </div>
       }
     >

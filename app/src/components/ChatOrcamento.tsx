@@ -2,15 +2,22 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Mail } from "lucide-react";
 import { contato, mailtoOrcamento } from "@/lib/contato";
 
-/* Chat de orçamento em 5 passos, como o da LP de referência: bolhas com "digitando",
-   uma pergunta por vez, validação com mensagem de erro e contador. Envio igual ao do
-   formulário antigo: Formspree quando o cliente entregar o endpoint, mailto até lá. */
+/* Chat de orçamento em 5 passos: bolhas com "digitando", uma pergunta por vez, validação,
+   botão voltar, chips para o produto e envio por e-mail (Formspree quando chegar o endpoint). */
 
 const FORMSPREE_ENDPOINT = "";
 const TOTAL = 5;
+const VOLTAR = "__voltar__";
 
 const produtos = ["Paleteiro", "Gancheiro", "Baú metálico", "Baú plástico", "Ainda não sei"] as const;
 const ids: Record<string, string> = { paleteiro: "Paleteiro", gancheiro: "Gancheiro", metalico: "Baú metálico", plastico: "Baú plástico" };
+const teclado = [
+  { type: "text", auto: "given-name" },
+  { type: "text", auto: "organization" },
+  { type: "tel", auto: "tel" },
+  { type: "text", auto: "off" },
+  { type: "text", auto: "off" },
+];
 
 type Msg = { de: "bot" | "eu"; texto: string };
 type Valores = { nome: string; empresa: string; whatsapp: string; produto: string; mensagem: string };
@@ -29,10 +36,19 @@ export default function ChatOrcamento() {
   const [pronto, setPronto] = useState(false);
   const espera = useRef<((v: string) => void) | null>(null);
   const caixa = useRef<HTMLDivElement>(null);
+  const campo = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (caixa.current) caixa.current.scrollTop = caixa.current.scrollHeight;
   }, [msgs, digitando, chips]);
+
+  useEffect(() => {
+    if (chips || pronto) return;
+    const el = campo.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    if (r.top < innerHeight && r.bottom > 0) el.focus({ preventScroll: true });
+  }, [etapa, chips, pronto]);
 
   useEffect(() => {
     let vivo = true;
@@ -55,70 +71,89 @@ export default function ChatOrcamento() {
       new Promise<string>((ok) => {
         espera.current = ok;
       });
-    const ouvir = async (): Promise<string> => {
-      for (;;) {
+    const eu = (texto: string) => setMsgs((m) => [...m, { de: "eu", texto }]);
+    const foi = (r: string) => r === VOLTAR;
+
+    const passos: Array<() => Promise<"ok" | "voltar">> = [
+      async () => {
+        setEtapa(0);
+        setPular(false);
+        await bot("Como podemos te chamar?", 750);
+        for (;;) {
+          const r = (await perguntar()).trim();
+          if (!vivo) return "ok";
+          if (r.length >= 2) {
+            v.nome = titulo(r);
+            eu(v.nome);
+            return "ok";
+          }
+          await bot("Me diz o seu nome para eu continuar.", 700);
+        }
+      },
+      async () => {
+        setEtapa(1);
+        setPular(true);
+        await bot("Qual é a sua empresa?", 750);
+        const r = (await perguntar()).trim();
+        if (!vivo) return "ok";
+        setPular(false);
+        if (foi(r)) return "voltar";
+        v.empresa = r;
+        if (r) eu(r);
+        return "ok";
+      },
+      async () => {
+        setEtapa(2);
+        setPular(false);
+        await bot("Qual é o seu WhatsApp?", 750);
+        for (;;) {
+          const r = (await perguntar()).trim();
+          if (!vivo) return "ok";
+          if (foi(r)) return "voltar";
+          if (soDigitos(r).length >= 10) {
+            v.whatsapp = r;
+            eu(r);
+            return "ok";
+          }
+          await bot("Confere o número para o comercial te responder.", 700);
+        }
+      },
+      async () => {
+        setEtapa(3);
+        setPular(false);
+        await bot(v.produto === "Ainda não sei" ? "Qual produto te interessa?" : `Vi que você olhou o ${v.produto}. Quer trocar?`, 750);
+        setChips(true);
         const r = await perguntar();
-        if (!vivo) return "";
-        if (r.trim()) return r.trim();
-      }
-    };
+        if (!vivo) return "ok";
+        setChips(false);
+        if (foi(r)) return "voltar";
+        if ((produtos as readonly string[]).includes(r)) v.produto = r;
+        eu(v.produto);
+        return "ok";
+      },
+      async () => {
+        setEtapa(4);
+        setPular(true);
+        await bot("Quer contar sobre a sua operação?", 750);
+        const r = (await perguntar()).trim();
+        if (!vivo) return "ok";
+        setPular(false);
+        if (foi(r)) return "voltar";
+        v.mensagem = r;
+        if (r) eu(r);
+        return "ok";
+      },
+    ];
 
     (async () => {
       await bot("Olá! Aqui é da Niju.", 550);
       await bot("Vou te fazer 5 perguntas rápidas para montar o seu orçamento.", 900);
-      // 1. nome
-      setEtapa(0);
-      await bot("Como podemos te chamar?", 750);
-      for (;;) {
-        const r = await ouvir();
+      let i = 0;
+      while (i < passos.length) {
+        const r = await passos[i]();
         if (!vivo) return;
-        if (r.length >= 2) {
-          v.nome = titulo(r);
-          setMsgs((m) => [...m, { de: "eu", texto: v.nome }]);
-          break;
-        }
-        await bot("Me diz o seu nome para eu continuar.", 700);
+        i = r === "voltar" ? Math.max(0, i - 1) : i + 1;
       }
-      await bot(`Prazer, ${v.nome.split(" ")[0]}!`, 700);
-      // 2. empresa (opcional)
-      setEtapa(1);
-      setPular(true);
-      await bot("Qual é a sua empresa?", 750);
-      v.empresa = (await perguntar()).trim();
-      if (!vivo) return;
-      setPular(false);
-      if (v.empresa) setMsgs((m) => [...m, { de: "eu", texto: v.empresa }]);
-      // 3. whatsapp
-      setEtapa(2);
-      await bot("Qual é o seu WhatsApp?", 750);
-      for (;;) {
-        const r = await ouvir();
-        if (!vivo) return;
-        if (soDigitos(r).length >= 10) {
-          v.whatsapp = r;
-          setMsgs((m) => [...m, { de: "eu", texto: v.whatsapp }]);
-          break;
-        }
-        await bot("Confere o número para o comercial te responder.", 700);
-      }
-      // 4. produto (chips)
-      setEtapa(3);
-      await bot(v.produto === "Ainda não sei" ? "Qual produto te interessa?" : `Vi que você olhou o ${v.produto}. Quer trocar?`, 750);
-      setChips(true);
-      const r = await ouvir();
-      if (!vivo) return;
-      setChips(false);
-      if (produtos.includes(r as (typeof produtos)[number])) v.produto = r;
-      setMsgs((m) => [...m, { de: "eu", texto: v.produto }]);
-      // 5. mensagem (opcional)
-      setEtapa(4);
-      setPular(true);
-      await bot("Quer contar sobre a sua operação?", 750);
-      v.mensagem = (await perguntar()).trim();
-      if (!vivo) return;
-      setPular(false);
-      if (v.mensagem) setMsgs((m) => [...m, { de: "eu", texto: v.mensagem }]);
-      // envia
       await bot("Enviando seu pedido…", 700);
       let ok = true;
       if (FORMSPREE_ENDPOINT) {
@@ -146,17 +181,15 @@ export default function ChatOrcamento() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const enviarTexto = (e: React.FormEvent) => {
-    e.preventDefault();
-    const fn = espera.current;
-    espera.current = null;
-    if (fn) fn(entrada);
-    setEntrada("");
-  };
   const responder = (texto: string) => {
     const fn = espera.current;
     espera.current = null;
     if (fn) fn(texto);
+  };
+  const enviarTexto = (e: React.FormEvent) => {
+    e.preventDefault();
+    responder(entrada);
+    setEntrada("");
   };
 
   return (
@@ -167,7 +200,11 @@ export default function ChatOrcamento() {
           <p className="font-bold leading-tight">Niju</p>
           <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--n-text-2)]">Orçamento de implementos</p>
         </div>
-        {!pronto && <p className="font-mono text-[11px] tracking-[0.2em] text-[var(--n-text-2)]">{etapa + 1} DE {TOTAL}</p>}
+        {!pronto && (
+          <p className="font-mono text-[11px] tracking-[0.2em] text-[var(--n-text-2)]">
+            {etapa + 1} DE {TOTAL}
+          </p>
+        )}
       </div>
 
       <div ref={caixa} aria-live="polite" className="flex min-h-[300px] flex-1 flex-col gap-3 overflow-y-auto p-5">
@@ -193,8 +230,21 @@ export default function ChatOrcamento() {
 
       {!pronto && !chips && (
         <form onSubmit={enviarTexto} className="flex items-center gap-2 border-t border-[var(--n-line)] p-4">
+          {etapa > 0 && (
+            <button
+              type="button"
+              onClick={() => responder(VOLTAR)}
+              className="flex min-h-[44px] flex-none items-center px-2 font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--n-text-2)] hover:text-[var(--n-text-1)]"
+            >
+              Voltar
+            </button>
+          )}
           {pular && (
-            <button type="button" onClick={() => responder("")} className="flex-none font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--n-text-2)] hover:text-[var(--n-text-1)]">
+            <button
+              type="button"
+              onClick={() => responder("")}
+              className="flex min-h-[44px] flex-none items-center px-2 font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--n-text-2)] hover:text-[var(--n-text-1)]"
+            >
               Pular
             </button>
           )}
@@ -203,11 +253,14 @@ export default function ChatOrcamento() {
           </label>
           <input
             id="chat-entrada"
+            ref={campo}
             value={entrada}
             onChange={(e) => setEntrada(e.target.value)}
             placeholder="Escreva aqui…"
-            autoComplete="off"
-            className="lp-field flex-1 !rounded-full"
+            autoComplete={teclado[etapa].auto}
+            type={teclado[etapa].type}
+            inputMode={etapa === 2 ? "tel" : "text"}
+            className="lp-field min-h-[44px] flex-1 !rounded-full"
           />
           <button type="submit" aria-label="Enviar" className="flex h-12 w-12 flex-none items-center justify-center rounded-full bg-[var(--n-accent)] text-white transition-colors hover:bg-[var(--n-accent-hover)]">
             <ArrowRight size={18} aria-hidden />
@@ -215,17 +268,26 @@ export default function ChatOrcamento() {
         </form>
       )}
       {!pronto && chips && (
-        <div className="flex flex-wrap gap-2 border-t border-[var(--n-line)] p-4">
-          {produtos.map((p) => (
-            <button
-              key={p}
-              type="button"
-              onClick={() => responder(p)}
-              className="rounded-full border border-[var(--n-line)] px-4 py-2 text-sm font-bold transition-colors hover:border-[var(--n-accent-soft)]"
-            >
-              {p}
-            </button>
-          ))}
+        <div className="border-t border-[var(--n-line)] p-4">
+          <div className="flex flex-wrap gap-2">
+            {produtos.map((p) => (
+              <button
+                key={p}
+                type="button"
+                onClick={() => responder(p)}
+                className="flex min-h-[44px] items-center rounded-full border border-[var(--n-line)] px-4 text-sm font-bold transition-colors hover:border-[var(--n-accent-soft)]"
+              >
+                {p}
+              </button>
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={() => responder(VOLTAR)}
+            className="mt-2 flex min-h-[44px] items-center px-2 font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--n-text-2)] hover:text-[var(--n-text-1)]"
+          >
+            Voltar
+          </button>
         </div>
       )}
       {pronto && (

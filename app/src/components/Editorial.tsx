@@ -138,9 +138,19 @@ export function Botao({
   );
 }
 
-export function LinkRolo({ href, children, className }: { href: string; children: string; className?: string }) {
+export function LinkRolo({
+  href,
+  children,
+  className,
+  atual,
+}: {
+  href: string;
+  children: string;
+  className?: string;
+  atual?: boolean;
+}) {
   return (
-    <a href={href} className={cn("lp-roll", className)}>
+    <a href={href} aria-current={atual ? "true" : undefined} className={cn("lp-roll", className)}>
       <span className="lp-roll-in">
         <span>{children}</span>
         <span aria-hidden>{children}</span>

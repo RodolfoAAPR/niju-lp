@@ -17,6 +17,24 @@ export default function Orcamento() {
         Preencha e receba proposta do time Niju.
       </p>
 
+      <ol data-reveal className="mt-8 grid gap-4 sm:grid-cols-3">
+        {[
+          ["01", "Responda no chat", "5 perguntas rápidas."],
+          ["02", "Receba a proposta", "O comercial responde."],
+          ["03", "Feche com o comercial", "Sem compromisso."],
+        ].map(([n, t, d]) => (
+          <li key={n} className="flex gap-4 rounded-2xl border border-[var(--n-line)] p-5">
+            <span aria-hidden className="lp-display text-4xl text-[var(--n-accent)]">
+              {n}
+            </span>
+            <span>
+              <span className="block font-bold">{t}</span>
+              <span className="block text-[var(--n-text-2)]">{d}</span>
+            </span>
+          </li>
+        ))}
+      </ol>
+
       <div data-reveal className="mt-8 grid gap-6 lg:grid-cols-[1.2fr_1fr]">
         <ChatOrcamento />
 
