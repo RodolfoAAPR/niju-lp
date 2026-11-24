@@ -65,7 +65,7 @@ export default function Produtos() {
   const [aba, setAba] = useState(0);
   const { trilho, ativo, mexeu, irPara } = useCarrossel<HTMLUListElement>();
   return (
-    <section id="produtos" className="lp-pad py-16 md:py-24">
+    <section id="produtos" className="lp-pad py-12 md:py-16">
       <Capitulo>Capítulo 04 · Produtos</Capitulo>
       <Titulo className="mt-6 max-w-[14ch] text-[clamp(2.4rem,6vw,4.5rem)]">
         Um Niju para <em>cada carga.</em>
@@ -73,7 +73,7 @@ export default function Produtos() {
       <Corpo className="mt-6">Fotos reais, ficha técnica de verdade. Toque para ver cada um.</Corpo>
 
       {/* desktop: abas */}
-      <div data-reveal className="mt-12 hidden min-[900px]:block">
+      <div data-reveal className="mt-8 hidden min-[900px]:block">
         <div role="tablist" aria-label="Produtos" className="flex flex-wrap gap-3">
           {produtos.map((p, i) => (
             <button
@@ -112,7 +112,7 @@ export default function Produtos() {
       </div>
 
       {/* celular: carrossel */}
-      <div className="mt-10 min-[900px]:hidden">
+      <div className="mt-8 min-[900px]:hidden">
         <DicaArraste mexeu={mexeu} className="mb-4" />
         <ul ref={trilho} className="lp-trilho -mx-5 px-5">
           {produtos.map((p, i) => (

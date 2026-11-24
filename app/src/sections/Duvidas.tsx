@@ -27,12 +27,12 @@ const duvidas = [
 
 export default function Duvidas() {
   return (
-    <section id="duvidas" className="lp-pad py-16 md:py-24">
+    <section id="duvidas" className="lp-pad py-12 md:py-16">
       <Capitulo>Capítulo 08 · Dúvidas</Capitulo>
       <Titulo className="mt-6 max-w-[14ch] text-[clamp(2.4rem,6vw,4.5rem)]">
         Pergunte <em>sem medo.</em>
       </Titulo>
-      <div data-reveal className="mt-10 max-w-3xl border-t border-[var(--n-line)]">
+      <div data-reveal className="mt-8 max-w-3xl border-t border-[var(--n-line)]">
         {duvidas.map((d) => (
           <details key={d.p} className="lp-duvida" name="duvidas">
             <summary>{d.p}</summary>

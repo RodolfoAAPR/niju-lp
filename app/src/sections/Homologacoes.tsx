@@ -13,13 +13,13 @@ const placas = ["BRF"];
 
 export default function Homologacoes() {
   return (
-    <section id="homologacoes" className="lp-pad py-16 md:py-24">
+    <section id="homologacoes" className="lp-pad py-12 md:py-16">
       <Capitulo>Capítulo 03 · Prova</Capitulo>
       <Titulo className="mt-6 max-w-[14ch] text-[clamp(2.4rem,6vw,4.5rem)]">
         Homologada nos maiores frigoríficos <em>do país.</em>
       </Titulo>
       <Corpo className="mt-6">Se o seu frigorífico não está na lista, pergunte no orçamento.</Corpo>
-      <div data-reveal className="mt-12 flex flex-wrap items-stretch gap-4">
+      <div data-reveal className="mt-8 flex flex-wrap items-stretch gap-4">
         {logos.map((l) => (
           <figure
             key={l.nome}

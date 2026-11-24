@@ -4,7 +4,7 @@ const frase = "Carreta boa é carreta que roda.".split(" ");
 
 export default function Manifesto() {
   return (
-    <section aria-label="Manifesto" className="lp-pad py-16 md:py-24">
+    <section aria-label="Manifesto" className="lp-pad py-12 md:py-16">
       <p className="lp-manifesto lp-display max-w-[16ch] text-[clamp(2.2rem,6vw,4.5rem)]">
         {frase.map((p, i) => (
           <span key={i}>
@@ -13,7 +13,7 @@ export default function Manifesto() {
           </span>
         ))}
       </p>
-      <p data-reveal className="lp-intro mt-10 max-w-[40ch]">
+      <p data-reveal className="lp-intro mt-8 max-w-[40ch]">
         A Niju constrói para rodar mais e parar menos.
       </p>
     </section>

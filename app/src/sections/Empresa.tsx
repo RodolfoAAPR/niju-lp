@@ -10,12 +10,12 @@ const marcos = [
 
 export default function Empresa() {
   return (
-    <section id="empresa" className="lp-pad py-16 md:py-24">
+    <section id="empresa" className="lp-pad py-12 md:py-16">
       <Capitulo>Capítulo 07 · A casa</Capitulo>
       <Titulo className="mt-6 max-w-[14ch] text-[clamp(2.4rem,6vw,4.5rem)]">
         Desde 1994 <em>em Chapecó.</em>
       </Titulo>
-      <div data-draw-host data-reveal className="relative mt-14 max-w-2xl pl-12">
+      <div data-draw-host data-reveal className="relative mt-8 max-w-2xl pl-12">
         <svg aria-hidden className="absolute bottom-4 left-[13px] top-4 w-[2px]" preserveAspectRatio="none" viewBox="0 0 2 100">
           <line x1="1" y1="0" x2="1" y2="100" stroke="var(--n-line)" strokeWidth="2" vectorEffect="non-scaling-stroke" opacity="0.5" />
           <line x1="1" y1="0" x2="1" y2="100" stroke="var(--n-accent)" strokeWidth="2" vectorEffect="non-scaling-stroke" className="lp-draw" />

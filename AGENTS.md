@@ -66,6 +66,7 @@ Foto `portfolio-sebominas.jpg` em bloco 4:5 no topo (sem vídeo), carrosséis sn
 - 2026-11-23: deploy no GitHub Pages via Actions (`.github/workflows/pages.yml`, source precisa estar em GitHub Actions). Caminhos relativos em tudo (`PAGES_BASE=/niju-lp/` no build). URL: https://rodolfoaapr.github.io/niju-lp/
 - 2026-11-23: respiro das seções apertado, portfólio com 5 lado a lado no desktop, régua pelo centro visível e centralizada (rodolfo pediu).
 - 2026-11-23: botões de mapa no contato (Google, Waze, Apple), letreiros duplos, CTA grudada no celular, holofote nos pilares e magnet nos botões, Seara real nos homologados, rodapé com mapa numerado (rodolfo pediu).
+- 2026-11-23: formulário virou chat em 5 passos (mecânica da AutoSeg, envio igual), mapa OSM com alfinete da logo, respiro apertado de novo (rodolfo pediu).
 
 ## Pendências
 

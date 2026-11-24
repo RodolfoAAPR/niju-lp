@@ -28,7 +28,7 @@ function Card({ img, nome, i }: { img: string; nome: string; i: number }) {
 export default function Portfolio() {
   const { trilho, ativo, mexeu, irPara } = useCarrossel<HTMLUListElement>();
   return (
-    <section id="portfolio" className="lp-pad py-16 md:py-24">
+    <section id="portfolio" className="lp-pad py-12 md:py-16">
       <Capitulo>Capítulo 06 · Estrada</Capitulo>
       <Titulo className="mt-6 max-w-[16ch] text-[clamp(2.4rem,6vw,4.5rem)]">
         Na estrada com quem <em>carrega o país.</em>
@@ -36,7 +36,7 @@ export default function Portfolio() {
       <Corpo className="mt-6">Investimentos que já rodam por todo o Brasil.</Corpo>
 
       {/* desktop: os 5 lado a lado, centralizados */}
-      <ul data-reveal className="mt-10 hidden grid-cols-5 justify-center gap-4 min-[900px]:grid">
+      <ul data-reveal className="mt-8 hidden grid-cols-5 justify-center gap-4 min-[900px]:grid">
         {fotos.map((f, i) => (
           <li key={f.nome}>
             <Card img={f.img} nome={f.nome} i={i} />
@@ -45,7 +45,7 @@ export default function Portfolio() {
       </ul>
 
       {/* celular: carrossel com régua centralizada */}
-      <div className="mt-10 min-[900px]:hidden">
+      <div className="mt-8 min-[900px]:hidden">
         <DicaArraste mexeu={mexeu} className="mb-4" />
         <ul ref={trilho} className="lp-trilho -mx-5 px-5">
           {fotos.map((f, i) => (

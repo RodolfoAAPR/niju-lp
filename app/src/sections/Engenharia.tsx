@@ -44,18 +44,18 @@ function Card({ n, titulo, texto }: { n: string; titulo: string; texto: string }
 export default function Engenharia() {
   const { trilho, ativo, mexeu, irPara } = useCarrossel<HTMLUListElement>();
   return (
-    <section id="engenharia" className="lp-pad py-16 md:py-24">
+    <section id="engenharia" className="lp-pad py-12 md:py-16">
       <Capitulo>Capítulo 05 · Engenharia</Capitulo>
       <Titulo className="mt-6 max-w-[14ch] text-[clamp(2.4rem,6vw,4.5rem)]">
         Feita para <em>durar mais.</em>
       </Titulo>
-      <div data-reveal className="mt-12 hidden gap-4 min-[900px]:grid min-[900px]:grid-cols-2 xl:grid-cols-4">
+      <div data-reveal className="mt-8 hidden gap-4 min-[900px]:grid min-[900px]:grid-cols-2 xl:grid-cols-4">
         {pilares.map((p, i) => (
           <Card key={p.titulo} n={String(i + 1).padStart(2, "0")} titulo={p.titulo} texto={p.texto} />
         ))}
       </div>
 
-      <div className="mt-10 min-[900px]:hidden">
+      <div className="mt-8 min-[900px]:hidden">
         <DicaArraste mexeu={mexeu} className="mb-4" />
         <ul ref={trilho} className="lp-trilho -mx-5 px-5">
           {pilares.map((p, i) => (
