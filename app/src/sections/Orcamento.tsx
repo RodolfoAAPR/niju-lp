@@ -9,7 +9,7 @@ import { contato, mapas } from "@/lib/contato";
 export default function Orcamento() {
   return (
     <section id="orcamento" className="lp-pad py-12 md:py-16">
-      <Capitulo>Capítulo 09 · Orçamento</Capitulo>
+      <Capitulo>Capítulo 11 · Orçamento</Capitulo>
       <Titulo className="mt-6 max-w-[14ch] text-[clamp(2.4rem,6vw,4.5rem)]">
         Solicite um <em>orçamento.</em>
       </Titulo>

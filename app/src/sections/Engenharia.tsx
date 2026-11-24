@@ -55,7 +55,7 @@ export default function Engenharia() {
   const { trilho, ativo, mexeu, irPara } = useCarrossel<HTMLUListElement>();
   return (
     <section id="engenharia" className="lp-pad py-12 md:py-16">
-      <Capitulo>Capítulo 05 · Engenharia</Capitulo>
+      <Capitulo>Capítulo 06 · Engenharia</Capitulo>
       <Titulo className="mt-6 max-w-[14ch] text-[clamp(2.4rem,6vw,4.5rem)]">
         Feita para <em>durar mais.</em>
       </Titulo>

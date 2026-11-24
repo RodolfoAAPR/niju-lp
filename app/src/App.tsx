@@ -7,9 +7,11 @@ import StickyCta from "@/components/StickyCta";
 import Topo from "@/sections/Topo";
 import Manifesto from "@/sections/Manifesto";
 import Ticker from "@/sections/Ticker";
+import Dor from "@/sections/Dor";
 import Homologacoes from "@/sections/Homologacoes";
 import Produtos from "@/sections/Produtos";
 import Engenharia from "@/sections/Engenharia";
+import SeuCaso from "@/sections/SeuCaso";
 import Portfolio from "@/sections/Portfolio";
 import Empresa from "@/sections/Empresa";
 import Duvidas from "@/sections/Duvidas";
@@ -36,9 +38,11 @@ export default function App() {
         <Topo />
         <Manifesto />
         <Ticker />
+        <Dor />
         <Homologacoes />
         <Produtos />
         <Engenharia />
+        <SeuCaso />
         <Portfolio />
         <Empresa />
         <Duvidas />

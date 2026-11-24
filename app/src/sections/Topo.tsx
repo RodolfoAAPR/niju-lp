@@ -1,5 +1,5 @@
 import ScrollVideo from "@/components/ScrollVideo";
-import { Botao, Palavras } from "@/components/Editorial";
+import { Botao, Palavras, Rolo } from "@/components/Editorial";
 import { cn } from "@/lib/utils";
 
 /* Topo com a cena Descida da madrugada (Tier 2).
@@ -49,7 +49,9 @@ export default function Topo() {
       staticContent={
         <div className="lp-pad relative flex min-h-[100svh] flex-col justify-center gap-6 py-24 max-[899px]:min-h-0 max-[899px]:justify-start max-[899px]:pb-16 max-[899px]:pt-10">
           <MarcaHero className="is-in !items-start [&_.lp-marca-mascara]:w-[min(50vw,220px)] [&_.lp-marca-linha]:hidden" />
-          <p className="lp-eyebrow lp-over-video">Implementos rodoviários · Chapecó SC</p>
+          <p className="lp-eyebrow lp-over-video w-fit rounded-full border border-[var(--n-line)] bg-black/40 px-4 py-2">
+            Implementos rodoviários · Chapecó SC
+          </p>
           <h1 data-words className="lp-display lp-over-video max-w-[12ch] text-[clamp(2.8rem,7.5vw,6rem)] text-white">
             <Palavras>
               Com Niju <em>dura mais.</em>
@@ -64,6 +66,21 @@ export default function Topo() {
           <p data-reveal className="font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--n-text-2)]">
             Orçamento em 5 perguntas · Sem compromisso
           </p>
+          <dl data-reveal className="flex flex-wrap gap-3">
+            {[
+              ["30+", "anos de estrada"],
+              ["4", "produtos na linha"],
+              ["5", "homologações"],
+              ["1994", "desde, em Chapecó"],
+            ].map(([n, rotulo]) => (
+              <div key={rotulo} className="flex min-w-[130px] flex-1 flex-col gap-1 rounded-xl border border-[var(--n-line)] bg-black/40 px-4 py-3 sm:flex-none sm:basis-[calc(25%-0.75rem)]">
+                <dd className="lp-display text-3xl text-white">
+                  <Rolo texto={n} />
+                </dd>
+                <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--n-text-2)]">{rotulo}</dt>
+              </div>
+            ))}
+          </dl>
         </div>
       }
     >

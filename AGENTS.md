@@ -38,7 +38,7 @@ Deploy do link de apresentação: `npx wrangler pages deploy dist --project-name
 
 ## Arquitetura da página
 
-Ordem das seções (`app/src/App.tsx`): Cabecalho · Topo · Manifesto · Homologacoes · Produtos · Engenharia · Portfolio · Empresa · Duvidas · Orcamento · Rodape.
+Ordem das seções (`app/src/App.tsx`): Cabecalho · Topo · Manifesto · Ticker · Dor · Homologacoes · Produtos · Engenharia · SeuCaso · Portfolio · Empresa · Duvidas · Orcamento · Rodape.
 
 - Topo (`sections/Topo.tsx` + `components/ScrollVideo.tsx`): cena por gesto Tier 2 com 5 faixas; PROVISÓRIO sem os mp4, cai no estático completo. Abertura V1 com logo em PNG (`mix-blend-mode: screen`).
 - Produtos: abas no desktop, carrossel snap + régua no celular; escolhe o produto no formulário via localStorage.
@@ -68,6 +68,7 @@ Foto `portfolio-sebominas.jpg` em bloco 4:5 no topo (sem vídeo), carrosséis sn
 - 2026-11-23: botões de mapa no contato (Google, Waze, Apple), letreiros duplos, CTA grudada no celular, holofote nos pilares e magnet nos botões, Seara real nos homologados, rodapé com mapa numerado (rodolfo pediu).
 - 2026-11-23: formulário virou chat em 5 passos (mecânica da AutoSeg, envio igual), mapa OSM com alfinete da logo, respiro apertado de novo (rodolfo pediu).
 - 2026-11-23: detalhes com frontend-design e ui-ux-pro-max: legenda do topo, ícones nos pilares, como-funciona, skip link, scrollspy, foco visível, alvos 44px, pausa no letreiro, voltar no chat, teclado certo por pergunta.
+- 2026-11-23: espelho AutoSeg de verdade: pinces de prova no topo, seção Dor, seção interativa Seu Caso, capítulos renumerados (rodolfo cobrou).
 
 ## Pendências
 

@@ -28,7 +28,7 @@ const duvidas = [
 export default function Duvidas() {
   return (
     <section id="duvidas" className="lp-pad py-12 md:py-16">
-      <Capitulo>Capítulo 08 · Dúvidas</Capitulo>
+      <Capitulo>Capítulo 10 · Dúvidas</Capitulo>
       <Titulo className="mt-6 max-w-[14ch] text-[clamp(2.4rem,6vw,4.5rem)]">
         Pergunte <em>sem medo.</em>
       </Titulo>

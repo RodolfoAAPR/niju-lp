@@ -574,11 +574,11 @@ export default function ScrollVideo({
     <section
       id={id}
       ref={sec}
-      // no desktop a seção já nasce com a altura final, com ou sem vídeo: nada pula quando o vídeo chega
-      className={cn("lp-cena relative min-[900px]:h-[100svh]", className)}
+      // no desktop com vídeo, altura travada na tela; no modo foto, cresce com o conteúdo para não cortar nada
+      className={cn("lp-cena relative", isVideo ? "min-[900px]:h-[100svh]" : "min-[900px]:min-h-[100svh]", className)}
       data-pendente={pendente || mode === "loading" ? "" : undefined}
     >
-      <div ref={frameRef} className={cn("lp-cena-frame relative min-h-[100svh] overflow-hidden min-[900px]:h-[100svh]", bloco && "max-[899px]:min-h-0")}>
+      <div ref={frameRef} className={cn("lp-cena-frame relative min-h-[100svh] overflow-hidden", isVideo ? "min-[900px]:h-[100svh]" : "min-[900px]:min-h-[100svh]", bloco && "max-[899px]:min-h-0")}>
         {isVideo && (
           <>
             <img src={poster} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover" />
