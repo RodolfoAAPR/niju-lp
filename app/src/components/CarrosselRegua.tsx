@@ -11,17 +11,38 @@ export function useCarrossel<T extends HTMLElement>() {
   useEffect(() => {
     const el = trilho.current;
     if (!el) return;
-    const io = new IntersectionObserver(
-      (es) => {
-        for (const e of es) if (e.isIntersecting) setAtivo(Number((e.target as HTMLElement).dataset.i));
-      },
-      { root: el, threshold: 0.6 },
-    );
-    el.querySelectorAll(":scope > li").forEach((li) => io.observe(li)); // só os cards: listas dentro deles também são li
+    // o card ativo é o mais perto do centro visível do trilho (com vários cards à vista,
+    // o observador antigo marcava o último visível e as bolinhas andavam errado)
+    let raf = 0;
+    const medir = () => {
+      raf = 0;
+      const cards = Array.from(el.querySelectorAll(":scope > li")); // só os cards: listas dentro deles também são li
+      if (!cards.length) return;
+      const meio = el.scrollLeft + el.clientWidth / 2;
+      let melhor = 0;
+      let dist = Infinity;
+      cards.forEach((li, i) => {
+        const c = (li as HTMLElement).offsetLeft + (li as HTMLElement).offsetWidth / 2;
+        const d = Math.abs(c - meio);
+        if (d < dist) {
+          dist = d;
+          melhor = i;
+        }
+      });
+      setAtivo((a) => (a === melhor ? a : melhor));
+    };
+    const pedir = () => {
+      if (!raf) raf = requestAnimationFrame(medir);
+    };
+    el.addEventListener("scroll", pedir, { passive: true });
+    addEventListener("resize", pedir);
+    medir();
     const primeiraVez = () => setMexeu(true);
     el.addEventListener("scroll", primeiraVez, { passive: true, once: true });
     return () => {
-      io.disconnect();
+      cancelAnimationFrame(raf);
+      el.removeEventListener("scroll", pedir);
+      removeEventListener("resize", pedir);
       el.removeEventListener("scroll", primeiraVez);
     };
   }, []);

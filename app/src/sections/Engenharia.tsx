@@ -37,7 +37,7 @@ function Card({ n, titulo, texto }: { n: string; titulo: string; texto: string }
 export default function Engenharia() {
   const { trilho, ativo, mexeu, irPara } = useCarrossel<HTMLUListElement>();
   return (
-    <section id="engenharia" className="lp-pad py-24 md:py-32">
+    <section id="engenharia" className="lp-pad py-16 md:py-24">
       <Capitulo>Capítulo 05 · Engenharia</Capitulo>
       <Titulo className="mt-6 max-w-[14ch] text-[clamp(2.4rem,6vw,4.5rem)]">
         Feita para <em>durar mais.</em>

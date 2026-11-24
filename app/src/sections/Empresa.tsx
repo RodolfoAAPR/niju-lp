@@ -10,7 +10,7 @@ const marcos = [
 
 export default function Empresa() {
   return (
-    <section id="empresa" className="lp-pad py-24 md:py-32">
+    <section id="empresa" className="lp-pad py-16 md:py-24">
       <Capitulo>Capítulo 07 · A casa</Capitulo>
       <Titulo className="mt-6 max-w-[14ch] text-[clamp(2.4rem,6vw,4.5rem)]">
         Desde 1994 <em>em Chapecó.</em>
