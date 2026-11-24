@@ -1,6 +1,7 @@
 import { Compass, MapPin, Navigation } from "lucide-react";
 import { Capitulo, Titulo } from "@/components/Editorial";
 import ChatOrcamento from "@/components/ChatOrcamento";
+import Mapa from "@/components/Mapa";
 import { contato, mapas, whatsappUrl } from "@/lib/contato";
 
 /* CAPÍTULO 09 · Orçamento: a ação única virou um chat em 5 passos, como o da LP de referência.
@@ -48,20 +49,7 @@ export default function Orcamento() {
             {contato.email}
           </a>
           <p className="text-[var(--n-text-2)]">{contato.endereco}</p>
-          <figure className="overflow-hidden rounded-xl border border-[var(--n-line)]">
-            <div role="img" aria-label="Mapa da fábrica Niju na Rua Delfim Moreira, Chapecó" className="relative grid grid-cols-2">
-              <img src="assets/mapa-niju-0.png" alt="" aria-hidden loading="lazy" decoding="async" className="block aspect-square w-full" />
-              <img src="assets/mapa-niju-1.png" alt="" aria-hidden loading="lazy" decoding="async" className="block aspect-square w-full" />
-              <img src="assets/mapa-niju-2.png" alt="" aria-hidden loading="lazy" decoding="async" className="block aspect-square w-full" />
-              <img src="assets/mapa-niju-3.png" alt="" aria-hidden loading="lazy" decoding="async" className="block aspect-square w-full" />
-              <span aria-hidden className="lp-mapa-pin absolute -translate-x-1/2 -translate-y-full" style={{ left: "40.2%", top: "47.3%" }}>
-                <img src="assets/logo-niju.png" alt="" className="block w-20" />
-              </span>
-            </div>
-            <figcaption className="bg-[var(--n-canvas)] px-4 py-2 font-mono text-[10px] tracking-[0.08em] text-[var(--n-text-2)]">
-              Mapa © OpenStreetMap
-            </figcaption>
-          </figure>
+          <Mapa />
           <div className="flex flex-col gap-3">
             <p className="lp-eyebrow">Como chegar</p>
             <div className="grid grid-cols-3 gap-2">

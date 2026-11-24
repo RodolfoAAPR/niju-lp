@@ -26,7 +26,7 @@ function MarcaHero({ className }: { className?: string }) {
       <div className="lp-marca-mascara w-[min(62vw,520px)]">
         <img src="assets/logo-niju.png" alt="Niju Implementos Rodoviários" className="h-auto w-full" decoding="async" />
       </div>
-      <p className="lp-eyebrow lp-marca-linha lp-over-video text-center">Implementos rodoviários · desde 1994</p>
+      <p className="lp-eyebrow lp-marca-linha lp-over-video text-center">Desde 1994</p>
     </div>
   );
 }
@@ -50,7 +50,7 @@ export default function Topo() {
         <div className="lp-pad relative flex min-h-[100svh] flex-col justify-center gap-6 py-24 max-[899px]:min-h-0 max-[899px]:justify-start max-[899px]:pb-16 max-[899px]:pt-10">
           <MarcaHero className="is-in !items-start [&_.lp-marca-mascara]:w-[min(50vw,220px)] [&_.lp-marca-linha]:hidden" />
           <p className="lp-eyebrow lp-over-video w-fit rounded-full border border-[var(--n-line)] bg-black/40 px-4 py-2">
-            Implementos rodoviários · Chapecó SC
+            Chapecó SC
           </p>
           <h1 data-words className="lp-display lp-over-video max-w-[12ch] text-[clamp(2.8rem,7.5vw,6rem)] text-white">
             <Palavras>
@@ -71,7 +71,7 @@ export default function Topo() {
               ["30+", "anos de estrada"],
               ["4", "produtos na linha"],
               ["5", "homologações"],
-              ["1994", "fábrica em Chapecó"],
+              ["1994", "fundada em Chapecó"],
             ].map(([n, rotulo]) => (
               <div key={rotulo} className="flex min-w-[130px] flex-1 flex-col gap-1 rounded-xl border border-[var(--n-line)] bg-black/40 px-4 py-3 sm:flex-none sm:basis-[calc(25%-0.75rem)]">
                 <dd className="lp-display text-3xl text-white">

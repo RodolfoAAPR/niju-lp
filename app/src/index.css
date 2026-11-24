@@ -840,6 +840,33 @@ select.lp-field option {
   mix-blend-mode: screen;
 }
 
+/* ---------- raios do clique ---------- */
+.lp-raio {
+  position: fixed;
+  z-index: 90;
+  width: 4px;
+  height: 22px;
+  margin: -11px 0 0 -2px;
+  border-radius: 4px;
+  background: var(--n-accent-soft);
+  box-shadow: 0 0 16px rgba(125, 139, 255, 0.9);
+  pointer-events: none;
+  animation: lp-raio-voa 0.8s var(--lp-ease-out) forwards;
+}
+@keyframes lp-raio-voa {
+  0% {
+    opacity: 1;
+    transform: rotate(var(--rot)) translateY(0) scaleY(1);
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(var(--rot)) translateY(-110px) scaleY(0.4);
+  }
+}
+
 /* ---------- modos de teste de fluidez (?teste=...) ---------- */
 html.t-fio .lp-fio,
 html.t-reveal [data-reveal],

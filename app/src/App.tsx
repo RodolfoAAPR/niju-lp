@@ -3,6 +3,7 @@ import "lenis/dist/lenis.css";
 import { iniciarRolagemSuave } from "@/lib/rolagemSuave";
 import efeitosPagina from "@/effects/pagina";
 import Cabecalho from "@/sections/Cabecalho";
+import EfeitoClique from "@/components/EfeitoClique";
 import StickyCta from "@/components/StickyCta";
 import Trilho from "@/components/Trilho";
 import Topo from "@/sections/Topo";
@@ -32,6 +33,7 @@ export default function App() {
       <Cabecalho />
       <Trilho />
       <StickyCta />
+      <EfeitoClique />
       <main>
         <Topo />
         <Manifesto />

@@ -70,7 +70,7 @@ export default function Produtos() {
       <Titulo className="mt-6 max-w-[14ch] text-[clamp(2.4rem,6vw,4.5rem)]">
         Um Niju para <em>cada carga.</em>
       </Titulo>
-      <Corpo className="mt-6">Fotos reais, ficha técnica de verdade. Toque para ver cada um.</Corpo>
+      <Corpo className="mt-6">Ficha técnica de verdade. Toque para ver cada um.</Corpo>
 
       {/* desktop: abas */}
       <div data-reveal className="mt-8 hidden min-[900px]:block">
