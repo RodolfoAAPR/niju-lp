@@ -48,6 +48,7 @@ A definir na construção. Regra: foto própria no lugar do vídeo, carrossel co
 - 2026-11-23: briefing fechado. Marca real com fotos, clima de força industrial premium, só a AutoSeg como base, materiais do site e do Instagram, ação única em formulário de orçamento, homologações gigantes na frente, atendimento Brasil e Mercosul.
 - 2026-11-23: repositório `lp-niju`, padrão da skill. Remoto ainda não ligado (falta `gh auth login`).
 - 2026-11-23: Fase 3 caminho A (vídeo). Fase 4: conceito Descida da madrugada, Tier 2, marca V1 máscara, Trio A Estrada. Paleta: grafite, azul sinal, gelo.
+- 2026-11-23: Fase 5 aprovada. CLI Higgsfield instalado. Fotos em `app/public/assets/`, fontes em `app/public/fonts/`. Falta login no Higgsfield.
 
 ## Pendências
 
