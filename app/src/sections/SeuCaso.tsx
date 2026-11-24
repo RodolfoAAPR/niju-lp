@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { Check } from "lucide-react";
 import { Capitulo, Titulo } from "@/components/Editorial";
 import { contato } from "@/lib/contato";
 import { cn } from "@/lib/utils";
 
-/* CAPÍTULO 07 · Seu caso: toque no chip e a resposta troca, como o "aceitamos" da referência. */
+/* CAPÍTULO · Seu caso: cartões grandes que abrem a resposta, como o "aceitamos" da referência. */
 
 const casos = [
   {
@@ -62,32 +63,46 @@ export default function SeuCaso() {
   const [ativo, setAtivo] = useState(0);
   return (
     <section id="seu-caso" className="lp-pad py-12 md:py-16">
-      <Capitulo>Capítulo 07 · Seu caso</Capitulo>
+      <Capitulo>Seu caso</Capitulo>
       <Titulo className="mt-6 max-w-[14ch] text-[clamp(2.4rem,6vw,4.5rem)]">
         Toque no que é <em>o seu caso.</em>
       </Titulo>
-      <div data-reveal className="mt-8 flex max-w-3xl flex-col gap-4">
-        <div role="group" aria-label="Casos" className="flex flex-wrap gap-2">
-          {casos.map((c, i) => (
-            <button
+      <div data-reveal className="mt-8 grid gap-4 md:grid-cols-2">
+        {casos.map((c, i) => {
+          const aberto = i === ativo;
+          return (
+            <article
               key={c.chip}
-              type="button"
-              aria-pressed={i === ativo}
-              onClick={() => setAtivo(i)}
               className={cn(
-                "flex min-h-[44px] items-center rounded-full border px-4 text-sm font-bold transition-colors",
-                i === ativo
-                  ? "border-[var(--n-accent)] bg-[var(--n-accent)] text-white"
-                  : "border-[var(--n-line)] text-[var(--n-text-2)] hover:border-[var(--n-accent-soft)] hover:text-[var(--n-text-1)]",
+                "rounded-3xl border p-6 transition-colors duration-500 md:p-7",
+                aberto ? "border-[var(--n-accent-soft)] bg-[var(--n-panel)]" : "border-[var(--n-line)] hover:border-[var(--n-accent-soft)]",
               )}
             >
-              {c.chip}
-            </button>
-          ))}
-        </div>
-        <div key={ativo} className="lp-msg rounded-2xl border border-[var(--n-line)] bg-[var(--n-panel)] p-6 text-lg leading-relaxed md:p-8 md:text-xl">
-          <p>{casos[ativo].resposta}</p>
-        </div>
+              <button
+                type="button"
+                aria-expanded={aberto}
+                onClick={() => setAtivo(i)}
+                className="flex min-h-[44px] w-full items-center gap-4 text-left"
+              >
+                <span
+                  aria-hidden
+                  className={cn(
+                    "flex h-9 w-9 flex-none items-center justify-center rounded-full border transition-colors duration-500",
+                    aberto ? "border-[var(--n-accent)] bg-[var(--n-accent)] text-white" : "border-[var(--n-line)] text-transparent",
+                  )}
+                >
+                  <Check size={17} />
+                </span>
+                <span className="text-lg font-bold">{c.chip}</span>
+              </button>
+              {aberto && (
+                <p key={`r${i}`} className="lp-msg pl-13 pt-4 leading-relaxed text-[var(--n-text-2)]">
+                  {c.resposta}
+                </p>
+              )}
+            </article>
+          );
+        })}
       </div>
     </section>
   );

@@ -1,65 +1,58 @@
 import { useEffect, useState } from "react";
-import { LinkRolo } from "@/components/Editorial";
+import { HelpCircle, Images, MessageCircle, Truck, Wrench } from "lucide-react";
+import { useSecaoAtiva } from "@/lib/useSecaoAtiva";
+import { cn } from "@/lib/utils";
 
-/* Menu fixo. Sai da tela durante as cenas em vídeo (evento lp:cena) e enquanto o topo decide entre vídeo e foto. */
+/* Nave flutuante: pílula central de vidro no desktop, ícones no celular. Sai de cena com o vídeo. */
 
 const links = [
-  { href: "#produtos", texto: "Produtos" },
-  { href: "#engenharia", texto: "Engenharia" },
-  { href: "#portfolio", texto: "Portfólio" },
-  { href: "#duvidas", texto: "Dúvidas" },
+  { href: "#produtos", texto: "Produtos", Icone: Truck },
+  { href: "#engenharia", texto: "Engenharia", Icone: Wrench },
+  { href: "#portfolio", texto: "Portfólio", Icone: Images },
+  { href: "#duvidas", texto: "Dúvidas", Icone: HelpCircle },
 ];
 
 export default function Cabecalho() {
   const [emCena, setEmCena] = useState(false);
-  const [ativa, setAtiva] = useState("");
+  const ativa = useSecaoAtiva(links.map((l) => l.href));
   useEffect(() => {
     const ouvir = (e: Event) => setEmCena((e as CustomEvent<{ ativa: boolean }>).detail.ativa);
     addEventListener("lp:cena", ouvir);
     return () => removeEventListener("lp:cena", ouvir);
   }, []);
-  useEffect(() => {
-    let raf = 0;
-    const medir = () => {
-      raf = 0;
-      const linha = innerHeight * 0.4;
-      let atual = "";
-      for (const l of links) {
-        const el = document.querySelector(l.href);
-        if (el && el.getBoundingClientRect().top <= linha) atual = l.href;
-      }
-      setAtiva(atual);
-    };
-    const pedir = () => {
-      if (!raf) raf = requestAnimationFrame(medir);
-    };
-    addEventListener("scroll", pedir, { passive: true });
-    medir();
-    return () => {
-      cancelAnimationFrame(raf);
-      removeEventListener("scroll", pedir);
-    };
-  }, []);
   return (
     <header data-cena={emCena ? "1" : undefined} className="lp-cabecalho">
-      <div className="lp-pad flex items-center justify-between gap-6 py-4">
-        <a href="#topo" aria-label="Niju, voltar ao topo" className="block w-[104px]">
+      <nav
+        aria-label="Seções"
+        className="lp-nave mx-auto mt-4 flex w-fit max-w-[calc(100vw-2rem)] items-center gap-1 rounded-full border border-[var(--n-line)] bg-[rgba(16,20,24,0.88)] p-1.5 min-[900px]:gap-2"
+      >
+        <a href="#topo" aria-label="Niju, voltar ao topo" className="block w-[64px] flex-none px-2 min-[900px]:w-[88px]">
           <img src="assets/logo-niju.png" alt="Niju" className="h-auto w-full [mix-blend-mode:screen]" decoding="async" />
         </a>
-        <nav aria-label="Seções" className="hidden items-center gap-7 font-mono text-[12px] uppercase tracking-[0.18em] text-[var(--n-text-2)] min-[900px]:flex">
-          {links.map((l) => (
-            <LinkRolo key={l.href} href={l.href} atual={ativa === l.href} className={ativa === l.href ? "!text-[var(--n-text-1)]" : "hover:text-[var(--n-text-1)]"}>
-              {l.texto}
-            </LinkRolo>
-          ))}
-        </nav>
+        {links.map((l) => (
+          <a
+            key={l.href}
+            href={l.href}
+            aria-current={ativa === l.href ? "true" : undefined}
+            aria-label={l.texto}
+            className={cn(
+              "flex min-h-[44px] items-center rounded-full px-3 font-mono text-[12px] uppercase tracking-[0.12em] transition-colors",
+              ativa === l.href ? "bg-[var(--n-accent)] text-white" : "text-[var(--n-text-2)] hover:text-[var(--n-text-1)]",
+            )}
+          >
+            <l.Icone size={17} aria-hidden className="min-[900px]:hidden" />
+            <span className="hidden whitespace-nowrap min-[900px]:inline">{l.texto}</span>
+          </a>
+        ))}
         <a
           href="#orcamento"
-          className="inline-flex min-h-[44px] items-center rounded-full bg-[var(--n-accent)] px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[var(--n-accent-hover)]"
+          aria-label="Solicitar orçamento"
+          className="flex min-h-[44px] items-center gap-2 rounded-full bg-[var(--n-accent)] px-3 font-mono text-[12px] font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[var(--n-accent-hover)] min-[900px]:px-5"
         >
-          Solicitar orçamento
+          <MessageCircle size={17} aria-hidden className="min-[900px]:hidden" />
+          <span className="hidden whitespace-nowrap min-[900px]:inline">Orçamento</span>
         </a>
-      </div>
+      </nav>
     </header>
   );
 }

@@ -49,7 +49,7 @@ export function Palavras({ children, inicio = 0 }: { children: ReactNode; inicio
 export function Capitulo({ children, className }: { children: ReactNode; className?: string }) {
   return (
     <p data-reveal className={cn("lp-eyebrow flex items-center gap-3", className)}>
-      <i aria-hidden className="lp-dot" />
+      <i aria-hidden className="inline-block h-[2px] w-[22px] flex-none bg-[var(--n-accent-soft)]" />
       {children}
     </p>
   );
@@ -128,7 +128,6 @@ export function Botao({
         {...(/^https?:/.test(href) ? { target: "_blank", rel: "noopener noreferrer" } : null)}
         className={cn("lp-btn", `lp-btn--${variante}`, tamanho && `lp-btn--${tamanho}`, className)}
       >
-        <span aria-hidden className="lp-btn-dot" />
         <span className="lp-btn-txt">{children}</span>
         <span aria-hidden className="lp-btn-arrow">
           <Seta />

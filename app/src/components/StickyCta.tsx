@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ArrowRight } from "lucide-react";
 
 /* Barra de CTA grudada no celular: aparece depois do topo e some no formulário.
    Só observadores, nenhum cálculo por rolagem. */
@@ -33,8 +34,10 @@ export default function StickyCta() {
   return (
     <div data-ver={ver ? "" : undefined} className="lp-sticky-cta min-[900px]:hidden" aria-hidden={ver ? undefined : true}>
       <a href="#orcamento" tabIndex={ver ? undefined : -1} className="lp-btn lp-btn--claro w-full justify-center">
-        <span aria-hidden className="lp-btn-dot" />
         <span className="lp-btn-txt">Solicitar orçamento</span>
+        <span aria-hidden className="lp-btn-arrow">
+          <ArrowRight size={15} />
+        </span>
       </a>
     </div>
   );

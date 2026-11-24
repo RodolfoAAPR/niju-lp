@@ -1,4 +1,4 @@
-import { ArrowUp } from "lucide-react";
+import { ArrowUp, Mail, MapPin, Phone } from "lucide-react";
 import { contato } from "@/lib/contato";
 
 /* Rodapé: mapa numerado das seções, contato e dados legais oficiais. */
@@ -49,17 +49,25 @@ export default function Rodape() {
         </nav>
         <div>
           <p className="lp-eyebrow mb-5">Contato</p>
-          <div className="flex flex-col gap-3">
-            <a href={contato.telefoneHref} className="font-bold hover:underline">
-              {contato.telefoneExibido}
-            </a>
-            <a href={`mailto:${contato.email}`} className="text-[var(--n-text-2)] hover:underline">
-              {contato.email}
-            </a>
-            <p className="max-w-[26ch] text-[var(--n-text-2)]">{contato.endereco}</p>
+          <div className="flex flex-col gap-4">
+            {[
+              { Icone: Phone, rotulo: "Telefone", href: contato.telefoneHref, texto: contato.telefoneExibido },
+              { Icone: Mail, rotulo: "E-mail", href: `mailto:${contato.email}`, texto: contato.email },
+              { Icone: MapPin, rotulo: "Fábrica", href: "#orcamento", texto: contato.endereco },
+            ].map((c) => (
+              <a key={c.rotulo} href={c.href} className="group flex items-center gap-3">
+                <span aria-hidden className="flex h-10 w-10 flex-none items-center justify-center rounded-xl border border-[var(--n-line)] text-[var(--n-accent-soft)]">
+                  <c.Icone size={17} />
+                </span>
+                <span>
+                  <span className="block font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--n-text-2)]">{c.rotulo}</span>
+                  <span className="block font-bold group-hover:underline">{c.texto}</span>
+                </span>
+              </a>
+            ))}
             <a
               href="#topo"
-              className="mt-4 inline-flex w-fit items-center gap-2 rounded-full border border-[var(--n-line)] px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--n-text-2)] transition-colors hover:border-[var(--n-accent-soft)] hover:text-[var(--n-text-1)]"
+              className="mt-2 inline-flex w-fit items-center gap-2 rounded-full border border-[var(--n-line)] px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--n-text-2)] transition-colors hover:border-[var(--n-accent-soft)] hover:text-[var(--n-text-1)]"
             >
               Voltar ao topo
               <ArrowUp size={14} aria-hidden />

@@ -11,7 +11,7 @@ const dores = [
 export default function Dor() {
   return (
     <section id="dor" className="lp-pad py-12 md:py-16">
-      <Capitulo>Capítulo 03 · Estrada</Capitulo>
+      <Capitulo>Estrada</Capitulo>
       <Titulo className="mt-6 max-w-[16ch] text-[clamp(2.4rem,6vw,4.5rem)]">
         O barato sai caro <em>na estrada.</em>
       </Titulo>

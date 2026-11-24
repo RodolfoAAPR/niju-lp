@@ -29,7 +29,7 @@ export default function Portfolio() {
   const { trilho, ativo, mexeu, irPara } = useCarrossel<HTMLUListElement>();
   return (
     <section id="portfolio" className="lp-pad py-12 md:py-16">
-      <Capitulo>Capítulo 08 · Clientes</Capitulo>
+      <Capitulo>Clientes</Capitulo>
       <Titulo className="mt-6 max-w-[16ch] text-[clamp(2.4rem,6vw,4.5rem)]">
         Na estrada com quem <em>carrega o país.</em>
       </Titulo>

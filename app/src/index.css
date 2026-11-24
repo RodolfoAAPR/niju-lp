@@ -104,13 +104,6 @@
   font-weight: 500;
   font-display: swap;
 }
-@font-face {
-  font-family: "Instrument Serif";
-  src: url("../fonts/InstrumentSerif-400i.woff2") format("woff2");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
 
 html {
   scroll-behavior: smooth;
@@ -162,11 +155,10 @@ section[id] {
   line-height: 1.02;
   letter-spacing: 0;
   text-wrap: balance;
+  text-transform: uppercase;
 }
 .lp-display em {
-  font-family: "Instrument Serif", serif;
-  font-style: italic;
-  font-weight: 400;
+  font-style: normal;
   color: var(--n-accent-soft);
 }
 .lp-eyebrow {
@@ -187,6 +179,9 @@ section[id] {
   text-wrap: pretty;
 }
 .lp-pad {
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
   padding-left: clamp(1.25rem, 6vw, 5rem);
   padding-right: clamp(1.25rem, 6vw, 5rem);
 }
@@ -223,6 +218,7 @@ section[id] {
 .lp-btn--claro {
   background: var(--n-accent);
   color: #fff;
+  box-shadow: 0 8px 32px rgba(43, 63, 242, 0.45);
 }
 .lp-btn--claro:hover {
   background: var(--n-accent-hover);
@@ -249,10 +245,19 @@ section[id] {
 }
 .lp-btn-arrow {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.28);
   transition: transform 0.45s var(--lp-ease-btn);
 }
 .lp-btn:hover .lp-btn-arrow {
   transform: translateX(4px);
+}
+.lp-btn--contorno .lp-btn-arrow {
+  background: rgba(255, 255, 255, 0.08);
 }
 .lp-roll {
   overflow: hidden;
@@ -573,6 +578,12 @@ html.lenis {
   opacity: 0;
   translate: 0 -140%;
   pointer-events: none;
+}
+@media (min-width: 900px) {
+  .lp-nave {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
 }
 
 /* ---------- carrossel com scroll-snap ---------- */

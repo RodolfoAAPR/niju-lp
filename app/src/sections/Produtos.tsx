@@ -66,7 +66,7 @@ export default function Produtos() {
   const { trilho, ativo, mexeu, irPara } = useCarrossel<HTMLUListElement>();
   return (
     <section id="produtos" className="lp-pad py-12 md:py-16">
-      <Capitulo>Capítulo 05 · Produtos</Capitulo>
+      <Capitulo>Produtos</Capitulo>
       <Titulo className="mt-6 max-w-[14ch] text-[clamp(2.4rem,6vw,4.5rem)]">
         Um Niju para <em>cada carga.</em>
       </Titulo>

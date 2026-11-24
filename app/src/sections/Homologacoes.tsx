@@ -14,7 +14,7 @@ const placas = ["BRF"];
 export default function Homologacoes() {
   return (
     <section id="homologacoes" className="lp-pad py-12 md:py-16">
-      <Capitulo>Capítulo 04 · Prova</Capitulo>
+      <Capitulo>Prova</Capitulo>
       <Titulo className="mt-6 max-w-[14ch] text-[clamp(2.4rem,6vw,4.5rem)]">
         Homologada nos maiores frigoríficos <em>do país.</em>
       </Titulo>

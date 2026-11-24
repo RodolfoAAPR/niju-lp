@@ -69,6 +69,7 @@ Foto `portfolio-sebominas.jpg` em bloco 4:5 no topo (sem vídeo), carrosséis sn
 - 2026-11-23: formulário virou chat em 5 passos (mecânica da AutoSeg, envio igual), mapa OSM com alfinete da logo, respiro apertado de novo (rodolfo pediu).
 - 2026-11-23: detalhes com frontend-design e ui-ux-pro-max: legenda do topo, ícones nos pilares, como-funciona, skip link, scrollspy, foco visível, alvos 44px, pausa no letreiro, voltar no chat, teclado certo por pergunta.
 - 2026-11-23: espelho AutoSeg de verdade: pinces de prova no topo, seção Dor, seção interativa Seu Caso, capítulos renumerados (rodolfo cobrou).
+- 2026-11-23: restyle no idioma AutoSeg com cores Niju: nave em pílula, trilho de capítulos, caixa alta sem serifada, botões com chip de seta, seu caso em cartões, painel no orçamento, rodapé com ícones (rodolfo pediu).
 
 ## Pendências
 

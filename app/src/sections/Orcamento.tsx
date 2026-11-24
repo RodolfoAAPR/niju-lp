@@ -9,7 +9,7 @@ import { contato, mapas } from "@/lib/contato";
 export default function Orcamento() {
   return (
     <section id="orcamento" className="lp-pad py-12 md:py-16">
-      <Capitulo>Capítulo 11 · Orçamento</Capitulo>
+      <Capitulo>Orçamento</Capitulo>
       <Titulo className="mt-6 max-w-[14ch] text-[clamp(2.4rem,6vw,4.5rem)]">
         Solicite um <em>orçamento.</em>
       </Titulo>
@@ -35,8 +35,9 @@ export default function Orcamento() {
         ))}
       </ol>
 
-      <div data-reveal className="mt-8 grid gap-6 lg:grid-cols-[1.2fr_1fr]">
-        <ChatOrcamento />
+      <div data-reveal className="lp-painel mt-8 rounded-[28px] border border-[var(--n-line)] bg-white/[0.02] p-4 md:p-8">
+        <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr]">
+          <ChatOrcamento />
 
         <aside className="flex flex-col justify-center gap-6 rounded-2xl border border-[var(--n-line)] p-8">
           <p className="lp-eyebrow">Prefere falar direto</p>
@@ -79,6 +80,7 @@ export default function Orcamento() {
             </div>
           </div>
         </aside>
+        </div>
       </div>
     </section>
   );
