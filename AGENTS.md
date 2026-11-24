@@ -62,6 +62,7 @@ Foto `portfolio-sebominas.jpg` em bloco 4:5 no topo (sem vídeo), carrosséis sn
 - 2026-11-23: Fase 8 construída com topo provisório em foto (rodolfo escolheu construir com provisório). Autoteste: 360 a 1920 sem estouro, form erro/sucesso, movimento reduzido, gate de copy zerado, SITE_URL testado. Prints em `review/pw-*`.
 - 2026-11-23: link de apresentação liberado para publicar sem pedir a cada mudança. Projeto Pages: `lp-niju`. Falta token Cloudflare do rodolfo.
 - 2026-11-23: remoto ligado no `niju-lp` existente (rodolfo escolheu reaproveitar). Push com a conta da máquina via Credential Manager.
+- 2026-11-23: repo tornado público a pedido do rodolfo. `gh` logado como RodolfoAAPR.
 
 ## Pendências
 
