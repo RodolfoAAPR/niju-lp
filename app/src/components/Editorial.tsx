@@ -114,17 +114,20 @@ export function Botao({
   variante = "claro",
   tamanho,
   className,
+  onClick,
 }: {
   href: string;
   children: ReactNode;
   variante?: "claro" | "contorno";
   tamanho?: "sm";
   className?: string;
+  onClick?: () => void;
 }) {
   return (
     <MagnetSeguro>
       <a
         href={href}
+        onClick={onClick}
         {...(/^https?:/.test(href) ? { target: "_blank", rel: "noopener noreferrer" } : null)}
         className={cn("lp-btn", `lp-btn--${variante}`, tamanho && `lp-btn--${tamanho}`, className)}
       >

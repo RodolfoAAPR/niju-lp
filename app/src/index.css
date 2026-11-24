@@ -874,6 +874,38 @@ select.lp-field option {
   }
 }
 
+/* ---------- modal da ficha ---------- */
+.lp-modal {
+  animation: lp-modal-in 0.35s var(--lp-ease-out);
+}
+.lp-modal-fundo {
+  animation: lp-modal-fundo-in 0.3s ease-out;
+}
+@keyframes lp-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(26px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes lp-modal-fundo-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lp-modal,
+  .lp-modal-fundo {
+    animation: none;
+  }
+}
+
 /* ---------- raios do clique ---------- */
 .lp-raio {
   position: fixed;

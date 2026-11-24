@@ -22,3 +22,4 @@ Fotos do feed exigem login: pedir ao cliente que arraste as escolhidas no chat.
 - logo-seara.svg: Seara Alimentos 2024, da Wikimedia Commons com fonte seara.com.br (SVG original).
 - logo-brf.png: identidade atual (globo + brf), 600px, do Seeklogo (Wikimedia com 429 para este IP).
 - mapa-niju-0..3.png: 4 ladrilhos OSM z17 da Rua Delfim Moreira Ribeiro, Chapecó (-27.0785596, -52.6277967). Alfinete em 40,2%/47,3%. Dados © OpenStreetMap, ODbL.
+- ficha-*.jpg: fotos grandes de cada produto, das páginas oficiais. detalhe-*.jpg: closes da estrutura. selo-iso.jpg e selo-pecas.jpg: selos das páginas oficiais.

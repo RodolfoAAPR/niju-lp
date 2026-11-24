@@ -76,6 +76,7 @@ Foto `portfolio-sebominas.jpg` em bloco 4:5 no topo (sem vídeo), carrosséis sn
 - 2026-11-23: pince 1994 com texto humano, 3 mapas lado a lado, sociais em ícone no rodapé, telefone abre WhatsApp com mensagem pronta (rodolfo pediu).
 - 2026-11-23: sem "fotos reais" e sem "implementos rodoviários" no hero, mapa com zoom 3 níveis, pince 1994 "fundada em Chapecó", raios azuis no clique (rodolfo pediu).
 - 2026-11-23: favicon oficial, seção ativa translúcida no menu, luz circulando o painel do orçamento (rodolfo pediu).
+- 2026-11-23: ficha de produto em modal com galeria, specs e selos; fotos grandes no lugar das pequenas (rodolfo pediu).
 
 ## Pendências
 
